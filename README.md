@@ -4,7 +4,7 @@
 
 > Carlos Yalta Vargas
 > Shanghai University / PhD in Industrial Economics program
-> [cyaltav@outlook.com]
+> cyaltav@outlook.com
 > Version: March 2026
 
 ---
@@ -78,6 +78,15 @@ tfp-ai-patent-latam/
 ### AI Patent Classification
 
 AI-related patents were identified from WIPO using a keyword search strategy aligned with OECD/WIPO guidelines for AI patent identification, covering machine learning, neural networks, computer vision, natural language processing, robotics, and expert systems. Patent counts are aggregated to the country-year level. Separate searches were conducted in Spanish and Portuguese to maximize coverage for the LAC region.
+
+### Data Licensing & Attribution
+
+The input data files are redistributed here to make the results reproducible. Each remains subject to the terms of its original provider, and users should cite the primary sources rather than this repository:
+
+- **World Bank — World Development Indicators (WDI):** Licensed under [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses). Attribution: The World Bank, World Development Indicators.
+- **Penn World Table 10.01:** Feenstra, Inklaar & Timmer (2015), "The Next Generation of the Penn World Table," *American Economic Review*, 105(10), 3150–3182. Available at [www.ggdc.net/pwt](https://www.rug.nl/ggdc/productivity/pwt/); licensed under CC BY 4.0.
+- **ILOSTAT (International Labour Organization):** Employment statistics, redistributed under the ILO [terms of use](https://ilostat.ilo.org/about/copyright/) (CC BY 4.0). Attribution: ILOSTAT.
+- **WIPO IP Portal (PATENTSCOPE):** AI-patent search exports are derived from the [WIPO IP Portal](https://patentscope.wipo.int/), subject to WIPO's [terms of use](https://www.wipo.int/tools/en/disclaim.html). The files here are aggregated, keyword-filtered search results prepared by the author.
 
 ---
 
@@ -236,7 +245,12 @@ If you use this code or data in your research, please cite:
 
 ## License
 
-[To be specified — e.g., MIT License or Creative Commons Attribution 4.0]
+The **code** in this repository is released under the [MIT License](LICENSE).
+
+The **input data** files in `data/` are redistributed under the licenses of their
+original providers (World Bank WDI, Penn World Table, ILOSTAT, and WIPO IP Portal) —
+see [Data Licensing & Attribution](#data-licensing--attribution) above. Please cite
+the primary data sources, not this repository, when reusing the underlying data.
 
 ---
 
