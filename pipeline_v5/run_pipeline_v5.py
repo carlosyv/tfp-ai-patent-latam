@@ -1279,6 +1279,233 @@ def run_quantile_canay(df, ai_var):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# PUBLICATION-READY OUTPUT TABLES
+# ══════════════════════════════════════════════════════════════════════════════
+
+def compute_descriptives(df):
+    """Summary statistics for the merged panel (descriptive statistics table)."""
+    vars_desc = {
+        'TFP': 'Solow TFP',
+        'TFP_Growth': 'Solow TFP Growth (%)',
+        'TFP_Change': 'Malmquist TFP Change (VRS)',
+        'TFP_Change_CRS': 'Malmquist TFP Change (CRS)',
+        'AI_Patents': 'AI Patent Count',
+        'AI_Patent_Stock_PC': 'AI Patent Stock per capita',
+        'LN_AI': 'ln(AI Patent Stock pc)',
+        'GDPPC_constant2015': 'GDP per capita (const. 2015 USD)',
+        'FIN_credit_private': 'Private Credit (% GDP)',
+        'OPEN_trade': 'Trade Openness (% GDP)',
+        'INF_internet': 'Internet Users (%)',
+        'HC_index': 'PWT Human Capital Index',
+    }
+    rows = []
+    for var, label in vars_desc.items():
+        if var not in df.columns:
+            continue
+        s = df[var].dropna()
+        if len(s) == 0:
+            continue
+        rows.append({
+            'Variable': label, 'N': len(s),
+            'Mean': round(float(s.mean()), 4), 'Std': round(float(s.std()), 4),
+            'Min': round(float(s.min()), 4), 'Max': round(float(s.max()), 4),
+        })
+    return pd.DataFrame(rows)
+
+
+def compute_correlation_matrix(df):
+    """Correlation matrix for key regression variables."""
+    vars_corr = ['LN_AI', 'LNPGDP_constant2015', 'FIN_credit_private',
+                 'OPEN_trade', 'INF_internet', 'LN_HC_index']
+    vars_corr = [v for v in vars_corr if v in df.columns]
+    return df[vars_corr].dropna().corr()
+
+
+def _json_safe(o):
+    """Make numpy types JSON-serializable."""
+    if isinstance(o, (np.floating, float)):
+        return float(o) if np.isfinite(o) else None
+    if isinstance(o, (np.integer, int)):
+        return int(o)
+    if isinstance(o, np.ndarray):
+        return o.tolist()
+    if isinstance(o, dict):
+        return {k: _json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_json_safe(i) for i in o]
+    return o
+
+
+def _write_latex_table(spec, spec_label, dv_label, filename, out_dir,
+                       focus_vars, vlt, eo, dec=4):
+    """Write a LaTeX regression table for one benchmark specification."""
+    cl = [f'({i+1})\\\\{e}' for i, e in enumerate(eo)]
+    L = [
+        r'\begin{table}[htbp]', r'\centering', r'\small',
+        f'\\caption{{{spec_label}}}',
+        f'\\label{{tab:{filename.replace(".tex", "")}}}',
+        r'\begin{tabular}{l' + 'c' * len(eo) + r'}',
+        r'\toprule',
+        ' & '.join([''] + [f'\\makecell{{{c}}}' for c in cl]) + r' \\',
+        r'\midrule',
+        f'\\multicolumn{{{len(eo)+1}}}{{l}}{{\\textit{{DV: {dv_label}}}}} \\\\[4pt]',
+    ]
+    for v in focus_vars + ['const']:
+        lb = vlt.get(v, v.replace('_', r'\_'))
+        cr = f'${lb}$'
+        sr = ''
+        for e in eo:
+            r = spec.get(e)
+            if r and v in r.get('coef', {}):
+                c, s, pv = r['coef'][v], r['se'][v], r['p'][v]
+                cr += f' & {c:+.{dec}f}\\textsuperscript{{{_stars(pv)}}}'
+                sr += f' & ({s:.{dec}f})'
+            else:
+                cr += ' & ---'
+                sr += ' & '
+        L.append(cr + r' \\')
+        L.append(sr + r' \\[2pt]')
+    L.append(r'\midrule')
+    for rl, fn in [
+        ('Observations', lambda e: str(spec[e]['obs']) if e in spec and 'obs' in spec[e] else '---'),
+        ('$R^2$', lambda e: f"{spec[e]['r2']:.3f}" if e in spec and 'r2' in spec[e] else '---'),
+        ('Entity FE', lambda e: 'Yes' if e in ('FE', 'CCEFE') else 'No'),
+        ('Time FE', lambda e: 'Yes' if e in ('FE', 'CCEFE') else 'No'),
+        ('CS Averages', lambda e: 'Yes' if e in ('CCEP', 'CCEFE') else 'No'),
+    ]:
+        L.append(rl + ' & ' + ' & '.join(fn(e) for e in eo) + r' \\')
+    L += [
+        r'\bottomrule', r'\end{tabular}',
+        r'\begin{tablenotes}', r'\footnotesize',
+        r'\item \textit{Notes:} Cluster-robust SE (by country) in parentheses. '
+        r'$^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.',
+        f'\\item {len(COUNTRIES)} LAC countries, {START_YR}--{END_YR}. '
+        r'Two-way (country + year) fixed effects in the FE and CCEFE columns. '
+        r'Human capital: PWT 10.01 index.',
+        r'\end{tablenotes}', r'\end{table}',
+    ]
+    (out_dir / filename).write_text('\n'.join(L))
+
+
+def emit_publication_tables(df, merged, out_dir):
+    """Generate publication-ready benchmark tables (descriptives, correlation,
+    JSON, comparison CSV, LaTeX, and text summary) into out_dir."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ai_var = 'LN_AI'
+
+    compute_descriptives(merged).to_csv(
+        out_dir / 'descriptive_statistics.csv', index=False)
+    compute_correlation_matrix(merged).to_csv(
+        out_dir / 'correlation_matrix.csv')
+
+    # Benchmark specifications: Solow & Malmquist (VRS), full & parsimonious
+    specs = [
+        ('Solow_full',     'ln_TFP',     CONTROLS_FULL),
+        ('Malmquist_full', 'TFP_Change', CONTROLS_FULL),
+        ('Solow_pars',     'ln_TFP',     CONTROLS_PARS),
+        ('Malmquist_pars', 'TFP_Change', CONTROLS_PARS),
+    ]
+    estimators = [
+        ('OLS',   lambda d, y, x: pooled_ols(d, y, x)),
+        ('FE',    lambda d, y, x: fixed_effects_twoway(d, y, x, se_type='cluster')),
+        ('RE',    lambda d, y, x: random_effects(d, y, x)),
+        ('CCEP',  lambda d, y, x: cce_pooled(d, y, x)),
+        ('CCEFE', lambda d, y, x: cce_fe(d, y, x)),
+    ]
+    eo = ['OLS', 'FE', 'RE', 'CCEP', 'CCEFE']
+
+    all_results = {}
+    for sn, y_col, ctrls in specs:
+        x_cols = [ai_var] + ctrls
+        sr = {}
+        for en, fn in estimators:
+            try:
+                sr[en] = fn(df, y_col, x_cols)
+            except Exception as e:
+                sr[en] = {'error': str(e)}
+        all_results[sn] = sr
+
+    with open(out_dir / 'regression_results.json', 'w') as f:
+        json.dump(_json_safe(all_results), f, indent=2)
+
+    rows = []
+    for sn, sr in all_results.items():
+        for en in eo:
+            r = sr.get(en, {})
+            if ai_var not in r.get('coef', {}):
+                continue
+            p = r['p'][ai_var]
+            rows.append({
+                'spec': sn, 'estimator': en, 'ai_var': ai_var,
+                'beta_AI': round(r['coef'][ai_var], 6),
+                'se_AI': round(r['se'][ai_var], 6),
+                'p_AI': (round(float(p), 4) if np.isfinite(p) else None),
+                'stars': _stars(p),
+                'r2': round(r['r2'], 4), 'N': r['obs'],
+            })
+    pd.DataFrame(rows).to_csv(out_dir / 'regression_comparison.csv', index=False)
+
+    fv_full = ['LN_AI', 'LNPGDP_constant2015', 'FIN_credit_private',
+               'OPEN_trade', 'INF_internet', 'LN_HC_index']
+    fv_pars = ['LN_AI', 'LNPGDP_constant2015', 'OPEN_trade', 'LN_HC_index']
+    vlt = {
+        'LN_AI': r'\ln(\text{AI Patent Stock pc})',
+        'LNPGDP_constant2015': r'\ln(\text{GDP pc})',
+        'FIN_credit_private': r'\text{Private Credit}',
+        'OPEN_trade': r'\text{Trade Openness}',
+        'INF_internet': r'\text{Internet (\%)}',
+        'LN_HC_index': r'\ln(\text{PWT HC Index})',
+        'const': r'\text{Constant}',
+    }
+    for sn, sl, dvl, fn, fv in [
+        ('Solow_full', 'Solow TFP --- Full Controls',
+         r'$\ln(\text{TFP})$', 'tab_solow_full.tex', fv_full),
+        ('Malmquist_full', 'Malmquist TFP Change --- Full Controls',
+         'Malmquist TFP Change (VRS)', 'tab_malmquist_full.tex', fv_full),
+        ('Solow_pars', 'Solow TFP --- Parsimonious',
+         r'$\ln(\text{TFP})$', 'tab_solow_pars.tex', fv_pars),
+        ('Malmquist_pars', 'Malmquist TFP Change --- Parsimonious',
+         'Malmquist TFP Change (VRS)', 'tab_malmquist_pars.tex', fv_pars),
+    ]:
+        dec = 5 if 'Malmquist' in sn else 4
+        _write_latex_table(all_results.get(sn, {}), sl, dvl, fn, out_dir,
+                           fv, vlt, eo, dec)
+
+    sep = '─' * 92
+    lines = [
+        sep,
+        f'v5 BENCHMARK RESULTS: AI Patent Stock → TFP, {len(COUNTRIES)} LAC '
+        f'Countries, {START_YR}–{END_YR}',
+        sep, '',
+        'AI coefficient (LN_AI = ln per-capita AI patent stock) by specification:',
+        '',
+    ]
+    for sn, _, _ in specs:
+        lines.append(f'  {sn}')
+        for en in eo:
+            r = all_results[sn].get(en, {})
+            if ai_var in r.get('coef', {}):
+                p = r['p'][ai_var]
+                lines.append(
+                    f'    {en:<6} β(AI)={r["coef"][ai_var]:+.5f} '
+                    f'(SE={r["se"][ai_var]:.5f}){_stars(p):<3} '
+                    f'p={p:.4f}  N={r["obs"]}  R²={r["r2"]:.3f}')
+            else:
+                lines.append(f'    {en:<6} —  {r.get("error", "n/a")}')
+        lines.append('')
+    lines.append(sep)
+    (out_dir / 'regression_summary.txt').write_text('\n'.join(lines))
+
+    written = ['descriptive_statistics.csv', 'correlation_matrix.csv',
+               'regression_results.json', 'regression_comparison.csv',
+               'tab_solow_full.tex', 'tab_solow_pars.tex',
+               'tab_malmquist_full.tex', 'tab_malmquist_pars.tex',
+               'regression_summary.txt']
+    for fn in written:
+        print(f"    • {fn}")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # MAIN PIPELINE
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -1491,6 +1718,12 @@ def main():
     print(f"{'═'*70}")
     run_quantile_canay(df, ai_var)
 
+    # ── Step 11: Publication-ready benchmark tables ───────────────────
+    print(f"\n{'═'*70}")
+    print("STEP 11: Publication Tables (descriptives, JSON, CSV, LaTeX)")
+    print(f"{'═'*70}")
+    emit_publication_tables(df, merged, OUT_DIR)
+
     print(f"\n{'═'*70}")
     print("PIPELINE v5 COMPLETE")
     print(f"{'═'*70}")
@@ -1499,6 +1732,10 @@ def main():
     print(f"  • malmquist_dissertation_v5.csv (VRS)")
     print(f"  • malmquist_crs_dissertation_v5.csv (CRS robustness)")
     print(f"  • merged_dissertation_v5.csv")
+    print(f"  • {OUT_DIR.relative_to(BASE_DIR)}/ "
+          f"(descriptive_statistics.csv, correlation_matrix.csv,")
+    print(f"    regression_results.json, regression_comparison.csv, "
+          f"regression_summary.txt, tab_*.tex)")
 
 
 if __name__ == '__main__':

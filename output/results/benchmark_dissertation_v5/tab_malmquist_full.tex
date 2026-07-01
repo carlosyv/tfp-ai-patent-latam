@@ -1,0 +1,38 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Malmquist TFP Change --- Full Controls}
+\label{tab:tab_malmquist_full}
+\begin{tabular}{lccccc}
+\toprule
+ & \makecell{(1)\\OLS} & \makecell{(2)\\FE} & \makecell{(3)\\RE} & \makecell{(4)\\CCEP} & \makecell{(5)\\CCEFE} \\
+\midrule
+\multicolumn{6}{l}{\textit{DV: Malmquist TFP Change (VRS)}} \\[4pt]
+$\ln(\text{AI Patent Stock pc})$ & +0.00735\textsuperscript{} & -0.00214\textsuperscript{} & +0.00735\textsuperscript{} & +0.00244\textsuperscript{} & -0.00181\textsuperscript{} \\
+ & (0.00595) & (0.00781) & (0.00595) & (0.00629) & (0.00822) \\[2pt]
+$\ln(\text{GDP pc})$ & +0.02199\textsuperscript{***} & +0.04457\textsuperscript{} & +0.02199\textsuperscript{***} & +0.04329\textsuperscript{**} & +0.04211\textsuperscript{} \\
+ & (0.00737) & (0.05398) & (0.00737) & (0.01808) & (0.05807) \\[2pt]
+$\text{Private Credit}$ & -0.00026\textsuperscript{*} & -0.00035\textsuperscript{} & -0.00026\textsuperscript{*} & -0.00001\textsuperscript{} & -0.00041\textsuperscript{} \\
+ & (0.00013) & (0.00043) & (0.00013) & (0.00021) & (0.00045) \\[2pt]
+$\text{Trade Openness}$ & -0.00002\textsuperscript{} & -0.00057\textsuperscript{} & -0.00002\textsuperscript{} & -0.00049\textsuperscript{} & -0.00066\textsuperscript{} \\
+ & (0.00024) & (0.00071) & (0.00024) & (0.00052) & (0.00075) \\[2pt]
+$\text{Internet (\%)}$ & +0.00013\textsuperscript{} & +0.00006\textsuperscript{} & +0.00013\textsuperscript{} & -0.00071\textsuperscript{} & -0.00017\textsuperscript{} \\
+ & (0.00020) & (0.00041) & (0.00020) & (0.00073) & (0.00053) \\[2pt]
+$\ln(\text{PWT HC Index})$ & -0.06511\textsuperscript{} & -0.01844\textsuperscript{} & -0.06511\textsuperscript{} & -0.01424\textsuperscript{} & -0.02055\textsuperscript{} \\
+ & (0.04896) & (0.04849) & (0.04896) & (0.03021) & (0.05295) \\[2pt]
+$\text{Constant}$ & +0.88774\textsuperscript{***} & --- & +0.88774\textsuperscript{***} & -0.00000\textsuperscript{} & --- \\
+ & (0.06590) &  & (0.06590) & (1.23958) &  \\[2pt]
+\midrule
+Observations & 170 & 170 & 170 & 170 & 170 \\
+$R^2$ & 0.091 & 0.064 & 0.091 & 0.568 & 0.546 \\
+Entity FE & No & Yes & No & No & Yes \\
+Time FE & No & Yes & No & No & Yes \\
+CS Averages & No & No & No & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Notes:} Cluster-robust SE (by country) in parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+\item 9 LAC countries, 2000--2024. Two-way (country + year) fixed effects in the FE and CCEFE columns. Human capital: PWT 10.01 index.
+\end{tablenotes}
+\end{table}

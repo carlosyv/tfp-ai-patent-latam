@@ -1,0 +1,38 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Solow TFP --- Full Controls}
+\label{tab:tab_solow_full}
+\begin{tabular}{lccccc}
+\toprule
+ & \makecell{(1)\\OLS} & \makecell{(2)\\FE} & \makecell{(3)\\RE} & \makecell{(4)\\CCEP} & \makecell{(5)\\CCEFE} \\
+\midrule
+\multicolumn{6}{l}{\textit{DV: $\ln(\text{TFP})$}} \\[4pt]
+$\ln(\text{AI Patent Stock pc})$ & -0.0909\textsuperscript{*} & -0.0237\textsuperscript{} & -0.0174\textsuperscript{} & -0.0889\textsuperscript{**} & -0.0238\textsuperscript{} \\
+ & (0.0480) & (0.0192) & (0.0226) & (0.0441) & (0.0179) \\[2pt]
+$\ln(\text{GDP pc})$ & +0.9581\textsuperscript{***} & +0.5134\textsuperscript{***} & +0.5478\textsuperscript{***} & +0.9301\textsuperscript{***} & +0.5518\textsuperscript{***} \\
+ & (0.1057) & (0.0785) & (0.0814) & (0.1332) & (0.0701) \\[2pt]
+$\text{Private Credit}$ & -0.0022\textsuperscript{} & +0.0001\textsuperscript{} & -0.0004\textsuperscript{} & -0.0025\textsuperscript{} & +0.0007\textsuperscript{} \\
+ & (0.0014) & (0.0012) & (0.0012) & (0.0015) & (0.0011) \\[2pt]
+$\text{Trade Openness}$ & -0.0035\textsuperscript{} & -0.0004\textsuperscript{} & -0.0010\textsuperscript{*} & -0.0036\textsuperscript{} & +0.0008\textsuperscript{} \\
+ & (0.0021) & (0.0011) & (0.0006) & (0.0028) & (0.0010) \\[2pt]
+$\text{Internet (\%)}$ & -0.0053\textsuperscript{***} & -0.0019\textsuperscript{*} & -0.0039\textsuperscript{***} & +0.0006\textsuperscript{} & +0.0008\textsuperscript{} \\
+ & (0.0016) & (0.0011) & (0.0008) & (0.0023) & (0.0016) \\[2pt]
+$\ln(\text{PWT HC Index})$ & +0.2928\textsuperscript{} & -0.3546\textsuperscript{***} & -0.2899\textsuperscript{*} & +0.2482\textsuperscript{} & -0.3076\textsuperscript{**} \\
+ & (0.5661) & (0.1356) & (0.1673) & (0.5848) & (0.1353) \\[2pt]
+$\text{Constant}$ & -2.4917\textsuperscript{**} & --- & +0.4971\textsuperscript{} & +0.0000\textsuperscript{} & --- \\
+ & (0.9641) &  & (0.7571) & (3.4420) &  \\[2pt]
+\midrule
+Observations & 215 & 215 & 215 & 215 & 215 \\
+$R^2$ & 0.855 & 0.587 & 0.652 & 0.875 & 0.723 \\
+Entity FE & No & Yes & No & No & Yes \\
+Time FE & No & Yes & No & No & Yes \\
+CS Averages & No & No & No & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Notes:} Cluster-robust SE (by country) in parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+\item 9 LAC countries, 2000--2024. Two-way (country + year) fixed effects in the FE and CCEFE columns. Human capital: PWT 10.01 index.
+\end{tablenotes}
+\end{table}

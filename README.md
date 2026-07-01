@@ -61,7 +61,15 @@ tfp-ai-patent-latam/
         ├── malmquist_dissertation_v5.csv          ← VRS (main)
         ├── malmquist_crs_dissertation_v5.csv      ← CRS (robustness)
         ├── merged_dissertation_v5.csv             ← Panel A estimation dataset
-        └── merged_panelB_v5.csv                   ← Panel B estimation dataset
+        ├── merged_panelB_v5.csv                   ← Panel B estimation dataset
+        └── benchmark_dissertation_v5/            ← Publication-ready tables
+            ├── regression_results.json            ← All benchmark results (structured)
+            ├── regression_comparison.csv          ← AI coefficient across specs/estimators
+            ├── regression_summary.txt             ← Human-readable summary
+            ├── descriptive_statistics.csv
+            ├── correlation_matrix.csv
+            ├── tab_solow_full.tex / tab_solow_pars.tex        ← LaTeX (Solow)
+            └── tab_malmquist_full.tex / tab_malmquist_pars.tex ← LaTeX (Malmquist)
 ```
 
 ---
@@ -77,7 +85,7 @@ tfp-ai-patent-latam/
 | `ai-search-wipo-results-br-portuguese-v2.xlsx` | WIPO IP Portal | AI-related patents — Brazil (Portuguese) | up to 2024 |
 | `cat-ai-patents-country-data/publications_yearly_articles.csv` | OECD.AI Policy Observatory | AI publication counts (Panel B AI measure) | 2016–2024 |
 
-> **Supplementary files** — the other CSVs in `cat-ai-patents-country-data/` (AI patents, companies, and publication-citation series) and `pwt-tfp-na-*.csv` are included for reference but are **not** read by the current pipeline scripts.
+Every file in `data/` is read by the pipeline; no unused data is shipped.
 
 **Sample periods:** Panel A 2000–2024; Panel B 2016–2024 (both unbalanced due to data availability).
 
@@ -195,7 +203,19 @@ All outputs are written to `output/results/`:
 | `merged_dissertation_v5.csv` | Panel A estimation dataset (TFP measures, AI patent stock, WDI controls). |
 | `merged_panelB_v5.csv` | Panel B estimation dataset (OECD.AI publications, N=17). |
 
-Full regression tables (coefficients, SEs, t-statistics, p-values, significance stars, CD tests) are emitted to the console when the pipeline runs.
+Publication-ready benchmark tables are written to `output/results/benchmark_dissertation_v5/`:
+
+| File | Description |
+|---|---|
+| `regression_results.json` | Full structured benchmark results (all specifications and estimators). |
+| `regression_comparison.csv` | AI coefficient (β, SE, p, stars, R², N) across specs × estimators. |
+| `regression_summary.txt` | Human-readable summary of the benchmark AI coefficients. |
+| `descriptive_statistics.csv` | Summary statistics (N, mean, SD, min, max) for the estimation sample. |
+| `correlation_matrix.csv` | Pairwise correlations for key regression variables. |
+| `tab_solow_full.tex`, `tab_solow_pars.tex` | LaTeX regression tables — Solow TFP (full / parsimonious). |
+| `tab_malmquist_full.tex`, `tab_malmquist_pars.tex` | LaTeX regression tables — Malmquist TFP (full / parsimonious). |
+
+The complete econometric report (all estimators, CD tests, mediation, heterogeneity, and quantile regressions) is also printed to the console when the pipeline runs.
 
 ---
 

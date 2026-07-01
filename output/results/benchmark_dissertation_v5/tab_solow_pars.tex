@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Solow TFP --- Parsimonious}
+\label{tab:tab_solow_pars}
+\begin{tabular}{lccccc}
+\toprule
+ & \makecell{(1)\\OLS} & \makecell{(2)\\FE} & \makecell{(3)\\RE} & \makecell{(4)\\CCEP} & \makecell{(5)\\CCEFE} \\
+\midrule
+\multicolumn{6}{l}{\textit{DV: $\ln(\text{TFP})$}} \\[4pt]
+$\ln(\text{AI Patent Stock pc})$ & -0.1137\textsuperscript{**} & -0.0157\textsuperscript{} & -0.0422\textsuperscript{} & -0.0780\textsuperscript{} & -0.0157\textsuperscript{} \\
+ & (0.0572) & (0.0163) & (0.0286) & (0.0575) & (0.0166) \\[2pt]
+$\ln(\text{GDP pc})$ & +0.9302\textsuperscript{***} & +0.5473\textsuperscript{***} & +0.3914\textsuperscript{***} & +0.9685\textsuperscript{***} & +0.5473\textsuperscript{***} \\
+ & (0.1841) & (0.0810) & (0.0843) & (0.1567) & (0.0825) \\[2pt]
+$\text{Trade Openness}$ & -0.0050\textsuperscript{} & +0.0008\textsuperscript{} & -0.0020\textsuperscript{*} & -0.0055\textsuperscript{} & +0.0008\textsuperscript{} \\
+ & (0.0044) & (0.0009) & (0.0011) & (0.0036) & (0.0010) \\[2pt]
+$\ln(\text{PWT HC Index})$ & -0.9743\textsuperscript{***} & -0.3082\textsuperscript{***} & -0.9684\textsuperscript{***} & -0.1735\textsuperscript{} & -0.3082\textsuperscript{***} \\
+ & (0.3488) & (0.1081) & (0.1977) & (0.4564) & (0.1101) \\[2pt]
+$\text{Constant}$ & -1.0994\textsuperscript{} & --- & +2.9821\textsuperscript{***} & +0.0000\textsuperscript{} & --- \\
+ & (1.2092) &  & (0.4027) & (3.6628) &  \\[2pt]
+\midrule
+Observations & 225 & 225 & 225 & 225 & 225 \\
+$R^2$ & 0.749 & 0.633 & 0.524 & 0.847 & 0.716 \\
+Entity FE & No & Yes & No & No & Yes \\
+Time FE & No & Yes & No & No & Yes \\
+CS Averages & No & No & No & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize
+\item \textit{Notes:} Cluster-robust SE (by country) in parentheses. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.
+\item 9 LAC countries, 2000--2024. Two-way (country + year) fixed effects in the FE and CCEFE columns. Human capital: PWT 10.01 index.
+\end{tablenotes}
+\end{table}
