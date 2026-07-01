@@ -1,4 +1,5 @@
-# The Impact of AI Adoption on Total Factor Productivity in Latin America
+# Is there an AI productivity puzzle in Latin America? Patents, TFP and complementary capabilities
+
 
 **Replication Package**
 
@@ -11,7 +12,7 @@
 
 ## Overview
 
-This repository contains the replication package for the paper *"The Impact of AI Adoption on Total Factor Productivity (TFP) in Latin America."* The study examines whether AI-related innovation — measured through revealed indicators of AI adoption — is associated with Total Factor Productivity growth across Latin American countries.
+This repository contains the replication package for the paper *"Is there an AI productivity puzzle in Latin America? Patents, TFP and complementary capabilities"* The study examines whether AI-related innovation — measured through revealed indicators of AI adoption — is associated with Total Factor Productivity growth across Latin American countries.
 
 Two TFP measures are constructed and compared:
 
@@ -231,7 +232,7 @@ The complete econometric report (all estimators, CD tests, mediation, heterogene
 
 If you use this code or data in your research, please cite:
 
-> Yalta, C. (2026). *The Impact of AI Adoption on Total Factor Productivity in Latin America*. [Journal name, volume, pages]. DOI: [to be assigned]
+> Yalta, C. (2026). *Is there an AI productivity puzzle in Latin America? Patents, TFP and complementary capabilities*. [Journal name, volume, pages]. DOI: [to be assigned]
 
 Please also cite the primary data providers listed under [Data Licensing & Attribution](#data-licensing--attribution).
 
