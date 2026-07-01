@@ -5,22 +5,31 @@
 > Carlos Yalta Vargas
 > Shanghai University / PhD in Industrial Economics program
 > cyaltav@outlook.com
-> Version: March 2026
+> Version: v5 (2026)
 
 ---
 
 ## Overview
 
-This repository contains the full replication package for the paper *"The Impact of AI Adoption on Total Factor Productivity (TFP) in Latin America."* The study examines whether AI-related patent activity — used as a revealed indicator of AI adoption — is associated with Total Factor Productivity growth across seven Latin American countries over the period 1992–2024.
+This repository contains the replication package for the paper *"The Impact of AI Adoption on Total Factor Productivity (TFP) in Latin America."* The study examines whether AI-related innovation — measured through revealed indicators of AI adoption — is associated with Total Factor Productivity growth across Latin American countries.
 
 Two TFP measures are constructed and compared:
 
-1. **Solow Residual** — parametric, growth-accounting approach with labor-augmenting human capital (α = 0.35; PWT 10.01 human capital index)
-2. **DEA-Malmquist Index** — non-parametric, output-oriented Variable Returns to Scale (VRS) frontier approach
+1. **Solow Residual** — parametric, growth-accounting approach with labor-augmenting human capital (α = 0.35; PWT 10.01 human capital index).
+2. **DEA-Malmquist Index** — non-parametric, output-oriented DEA frontier (Färe et al. 1994), 2-input (capital and effective labor), Variable Returns to Scale (VRS) main specification with a Constant Returns to Scale (CRS) robustness variant.
 
-Five hypotheses are tested using panel data methods, including Common Correlated Effects estimators (CCEP, CCEFE) to address cross-sectional dependence.
+The relationship is estimated with panel-data methods, including Common Correlated Effects estimators (CCEP, CCEFE) to address cross-sectional dependence. All panel estimators are implemented from scratch in NumPy; no specialized econometrics package (e.g., `statsmodels`, `linearmodels`) is used. `scipy` is used only for general numerical routines (normal/t distributions for p-values, and `linprog` for the DEA linear programs).
 
-All econometric estimators are implemented from scratch in NumPy. No external econometrics library is required.
+### Two analysis panels
+
+| Panel | Script | AI measure | Countries | Period |
+|---|---|---|---|---|
+| **A** (main) | `pipeline_v5/run_pipeline_v5.py` | WIPO AI patents (per-capita patent stock) | 9 | 2000–2024 |
+| **B** (robustness) | `pipeline_v5/run_pipeline_v5_panelB.py` | OECD.AI publications | 17 | 2016–2024 |
+
+**Panel A countries (9):** Argentina (ARG), Brazil (BRA), Chile (CHL), Colombia (COL), Costa Rica (CRI), Dominican Republic (DOM), Mexico (MEX), Peru (PER), Uruguay (URY).
+
+**Panel B countries (17):** Panel A plus Bolivia (BOL), Ecuador (ECU), El Salvador (SLV), Guatemala (GTM), Honduras (HND), Nicaragua (NIC), Panama (PAN), Paraguay (PRY).
 
 ---
 
@@ -28,35 +37,31 @@ All econometric estimators are implemented from scratch in NumPy. No external ec
 
 ```
 tfp-ai-patent-latam/
-├── README.md                                   ← This file
-├── requirements.txt                            ← Python dependencies (3 packages)
+├── README.md                                     ← This file
+├── LICENSE                                       ← MIT (code); data keeps providers' licenses
+├── requirements.txt                              ← Python dependencies
 ├── .gitignore
 │
-├── run_dissertation_v4_noimput_pipeline.py     ← MAIN PIPELINE (canonical)
+├── pipeline_v5/
+│   ├── run_pipeline_v5.py                         ← MAIN PIPELINE (Panel A)
+│   └── run_pipeline_v5_panelB.py                  ← Panel B robustness (OECD.AI publications)
 │
-├── data/                                       ← All input data sources
-│   ├── wb_data_export.csv                      ← World Development Indicators (WDI)
+├── data/                                          ← All input data sources
+│   ├── wb_data_export.csv                         ← World Development Indicators (WDI)
 │   ├── pwt-data-human-capital-026-03-22T15-56_export.csv  ← Penn World Table 10.01
-│   ├── EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz         ← ILOSTAT employment
-│   ├── ai-search-wipo-results-spanish-v2.xlsx              ← WIPO AI patents (Spanish)
-│   └── ai-search-wipo-results-br-portuguese-v2.xlsx        ← WIPO AI patents (Portuguese)
+│   ├── EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz         ← ILOSTAT employment (read gzipped)
+│   ├── ai-search-wipo-results-spanish-v2.xlsx             ← WIPO AI patents (Spanish-language offices)
+│   ├── ai-search-wipo-results-br-portuguese-v2.xlsx       ← WIPO AI patents (Brazil, Portuguese)
+│   └── cat-ai-patents-country-data/               ← OECD.AI Policy Observatory export
+│       └── publications_yearly_articles.csv       ← AI publications (used by Panel B)
 │
-├── output/
-│   └── results/
-│       └── benchmark_dissertation_v4_noimput/  ← Pre-computed results (canonical)
-│           ├── regression_results.json          ← Full structured results (all hypotheses)
-│           ├── regression_comparison.csv        ← Publication-ready coefficient table
-│           ├── descriptive_statistics.csv
-│           ├── correlation_matrix.csv
-│           ├── tab_solow_full.tex               ← LaTeX table: Solow TFP, full controls
-│           ├── tab_solow_pars.tex               ← LaTeX table: Solow TFP, parsimonious
-│           ├── tab_malmquist_full.tex           ← LaTeX table: Malmquist, full controls
-│           └── tab_malmquist_pars.tex           ← LaTeX table: Malmquist, parsimonious
-│
-└── deprecated/                                 ← Prior model specifications (v3)
-    ├── README.md                               ← Explanation of methodological evolution
-    ├── run_dissertation_v3_noimput_pipeline.py
-    └── run_dissertation_v3_pipeline.py
+└── output/
+    └── results/                                   ← Pipeline outputs (see "Output Files")
+        ├── solow_tfp_dissertation_v5.csv
+        ├── malmquist_dissertation_v5.csv          ← VRS (main)
+        ├── malmquist_crs_dissertation_v5.csv      ← CRS (robustness)
+        ├── merged_dissertation_v5.csv             ← Panel A estimation dataset
+        └── merged_panelB_v5.csv                   ← Panel B estimation dataset
 ```
 
 ---
@@ -65,28 +70,30 @@ tfp-ai-patent-latam/
 
 | File | Source | Variables | Coverage |
 |---|---|---|---|
-| `wb_data_export.csv` | World Bank WDI | GDP, GFCF, trade, FDI, govt consumption, urban pop., internet users, mobile cellular, fixed broadband, private credit, Rule of Law, tertiary enrollment | 7 countries, 1992–2024 |
-| `pwt-data-human-capital-*.csv` | Penn World Table 10.01 | Human capital index (hc) | 7 countries, 1950–2019 (extrapolated to 2024) |
-| `EMP_TEMP_SEX_AGE_NB_A-*.csv.gz` | ILOSTAT | Total employment (EMP_TEMP), all sexes, all ages | 7 countries, 1992–2024 |
-| `ai-search-wipo-results-spanish-v2.xlsx` | WIPO IP Portal | AI-related patents — ARG, CHL, COL, MEX, PER | Up to 2024 |
-| `ai-search-wipo-results-br-portuguese-v2.xlsx` | WIPO IP Portal | AI-related patents — BRA (Portuguese) | Up to 2024 |
+| `wb_data_export.csv` | World Bank WDI | GDP, GDP per capita, GFCF, trade, FDI, govt consumption, urban pop., internet/mobile/broadband, private credit, Rule of Law, population, services & industry value added | up to 17 countries, 1992–2024 |
+| `pwt-data-human-capital-*.csv` | Penn World Table 10.01 | Human capital index (`hc`) | 1950–2019 (extrapolated) |
+| `EMP_TEMP_SEX_AGE_NB_A-*.csv.gz` | ILOSTAT | Total employment (EMP_TEMP), all sexes, all ages | 1992–2024 |
+| `ai-search-wipo-results-spanish-v2.xlsx` | WIPO IP Portal | AI-related patents — Spanish-language offices (ARG, CHL, COL, CRI, DOM, MEX, PER, URY, …) | up to 2024 |
+| `ai-search-wipo-results-br-portuguese-v2.xlsx` | WIPO IP Portal | AI-related patents — Brazil (Portuguese) | up to 2024 |
+| `cat-ai-patents-country-data/publications_yearly_articles.csv` | OECD.AI Policy Observatory | AI publication counts (Panel B AI measure) | 2016–2024 |
 
-**Countries**: Argentina (ARG), Brazil (BRA), Chile (CHL), Colombia (COL), Costa Rica (CRI), Mexico (MEX), Peru (PER)
+> **Supplementary files** — the other CSVs in `cat-ai-patents-country-data/` (AI patents, companies, and publication-citation series) and `pwt-tfp-na-*.csv` are included for reference but are **not** read by the current pipeline scripts.
 
-**Sample period**: 1992–2024 (up to 231 country-year observations; unbalanced due to data availability)
+**Sample periods:** Panel A 2000–2024; Panel B 2016–2024 (both unbalanced due to data availability).
 
 ### AI Patent Classification
 
-AI-related patents were identified from WIPO using a keyword search strategy aligned with OECD/WIPO guidelines for AI patent identification, covering machine learning, neural networks, computer vision, natural language processing, robotics, and expert systems. Patent counts are aggregated to the country-year level. Separate searches were conducted in Spanish and Portuguese to maximize coverage for the LAC region.
+AI-related patents were identified from the WIPO IP Portal using a keyword search strategy aligned with OECD/WIPO guidance for AI patent identification (machine learning, neural networks, computer vision, natural language processing, robotics, expert systems). Counts are aggregated to the country-year level; separate Spanish and Portuguese searches maximize coverage for the region. The main AI regressor is a **per-capita AI patent stock** accumulated with depreciation (δ = 0.36, following Yan et al. 2020), entered in logs (`LN_AI`).
 
 ### Data Licensing & Attribution
 
-The input data files are redistributed here to make the results reproducible. Each remains subject to the terms of its original provider, and users should cite the primary sources rather than this repository:
+The input data files are redistributed here to make the results reproducible. Each remains subject to the terms of its original provider; users should cite the primary sources rather than this repository:
 
-- **World Bank — World Development Indicators (WDI):** Licensed under [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses). Attribution: The World Bank, World Development Indicators.
-- **Penn World Table 10.01:** Feenstra, Inklaar & Timmer (2015), "The Next Generation of the Penn World Table," *American Economic Review*, 105(10), 3150–3182. Available at [www.ggdc.net/pwt](https://www.rug.nl/ggdc/productivity/pwt/); licensed under CC BY 4.0.
-- **ILOSTAT (International Labour Organization):** Employment statistics, redistributed under the ILO [terms of use](https://ilostat.ilo.org/about/copyright/) (CC BY 4.0). Attribution: ILOSTAT.
-- **WIPO IP Portal (PATENTSCOPE):** AI-patent search exports are derived from the [WIPO IP Portal](https://patentscope.wipo.int/), subject to WIPO's [terms of use](https://www.wipo.int/tools/en/disclaim.html). The files here are aggregated, keyword-filtered search results prepared by the author.
+- **World Bank — World Development Indicators (WDI):** [CC BY 4.0](https://datacatalog.worldbank.org/public-licenses). Attribution: The World Bank, World Development Indicators.
+- **Penn World Table 10.01:** Feenstra, Inklaar & Timmer (2015), "The Next Generation of the Penn World Table," *American Economic Review*, 105(10), 3150–3182. [www.rug.nl/ggdc/productivity/pwt](https://www.rug.nl/ggdc/productivity/pwt/); CC BY 4.0.
+- **ILOSTAT (International Labour Organization):** Redistributed under the ILO [terms of use](https://ilostat.ilo.org/about/copyright/) (CC BY 4.0). Attribution: ILOSTAT.
+- **WIPO IP Portal (PATENTSCOPE):** AI-patent search exports derived from the [WIPO IP Portal](https://patentscope.wipo.int/), subject to WIPO's [terms of use](https://www.wipo.int/tools/en/disclaim.html). Files here are aggregated, keyword-filtered search results prepared by the author.
+- **OECD.AI Policy Observatory:** AI publication counts from [oecd.ai](https://oecd.ai/), subject to OECD [terms and conditions](https://www.oecd.org/termsandconditions/). Attribution: OECD.AI Policy Observatory.
 
 ---
 
@@ -100,51 +107,39 @@ The input data files are redistributed here to make the results reproducible. Ea
 TFP_it = GDP_it / (K_it^α × (L_it × HC_it)^(1−α))
 ```
 
-where α = 0.35 (capital share), K is the capital stock estimated via the Perpetual Inventory Method (PIM) using gross fixed capital formation (GFCF) from WDI, L is total employment from ILOSTAT, and HC is the Penn World Table 10.01 human capital index.
+where α = 0.35, K is the capital stock from the Perpetual Inventory Method (PIM, δ = 0.05) using gross fixed capital formation (GFCF) from WDI, L is total employment from ILOSTAT, and HC is the PWT 10.01 human capital index.
 
-**DEA-Malmquist Index:**
-
-The Malmquist total factor productivity change index is computed using output-oriented Variable Returns to Scale (VRS) DEA:
+**DEA-Malmquist Index (Färe et al. 1994):**
 
 ```
-M_it = sqrt[ (D^t+1(x_t+1, y_t+1) / D^t+1(x_t, y_t)) × (D^t(x_t+1, y_t+1) / D^t(x_t, y_t)) ]
+M_it = sqrt[ (D^t(x_{t+1}, y_{t+1}) / D^t(x_t, y_t)) × (D^{t+1}(x_{t+1}, y_{t+1}) / D^{t+1}(x_t, y_t)) ]
 ```
 
-M > 1 indicates productivity improvement; M < 1 indicates decline. The index is decomposed into efficiency change (catching-up) and technical change (frontier shift).
+Output-oriented, 2 inputs (capital and effective labor L×HC) for consistency with the Solow specification. VRS is the main specification; CRS is reported as robustness (it resolves VRS infeasibility for small DMUs). M > 1 indicates productivity improvement.
 
 ### Panel Estimators
 
-| Estimator | Abbreviation | Notes |
+| Estimator | Abbrev. | Notes |
 |---|---|---|
 | Pooled OLS | OLS | Cluster-robust SE by country |
-| Fixed Effects (Within) | FE | Cluster-robust SE; time-demeaned |
-| Random Effects (GLS) | RE | Mundlak variance components |
+| Two-way Fixed Effects | FE-2w | Country + year effects; cluster and Driscoll-Kraay SE |
+| Random Effects (GLS) | RE | Variance components |
 | Common Correlated Effects Pooled | CCEP | Pesaran (2006); cross-mean augmented |
 | Common Correlated Effects FE | CCEFE | Pesaran (2006); FE variant |
 
-CCEP/CCEFE are preferred specifications due to evidence of cross-sectional dependence (Pesaran CD test reported for all models).
+The Pesaran CD test for cross-sectional dependence is reported for all dependent variables; CCEP/CCEFE are the preferred estimators under dependence. The pipeline additionally runs mediation analysis (Baron-Kenny), heterogeneity analysis (interactions and subsamples), and Canay (2011) panel quantile regression.
 
-### Hypotheses
+### Changes from v4
 
-| Hypothesis | Description |
-|---|---|
-| H1 | AI patent activity is positively associated with TFP growth (benchmark) |
-| H2 | The effect of AI patents on TFP is mediated by human capital (Baron & Kenny 1986) |
-| H3 | The AI–TFP relationship is moderated by institutional quality (Rule of Law, RL.EST) |
-| H4 | The AI–TFP relationship is moderated by mobile cellular penetration (primary channel) |
-| H4r | Robustness check for H4 using fixed broadband penetration |
-| H5 | The AI–TFP relationship is heterogeneous across the TFP distribution (panel quantile regression, τ = 0.10, 0.25, 0.50, 0.75, 0.90) |
+v5 supersedes the earlier v4 package with corrections and an expanded sample:
 
-### Imputation Strategy
-
-The canonical pipeline (`run_dissertation_v4_noimput_pipeline.py`) applies **no imputation** to any variable:
-
-- ILOSTAT labor: raw observed values only; missing observations remain NaN
-- WDI control variables: raw values only
-- AI patent counts: unobserved country-years remain NaN (no zero-fill)
-- PWT HC extrapolation to 2024 and PIM capital stock gap-skipping are retained
-
-This is a conservative approach that preserves the information structure of the raw data and avoids imputation-induced attenuation bias.
+- **Malmquist formula corrected** to the standard Färe et al. (1994) form.
+- **Two-way fixed effects** (year dummies added to FE/CCE estimators).
+- **DEA uses 2 inputs** (capital, effective labor) for consistency with Solow; the 3-input version is retained as robustness.
+- **AI measure** is now a per-capita patent stock with depreciation (Luo et al. 2024).
+- **Interpolation** limited to `limit_direction='forward', limit=3`.
+- **Panel expanded** from 7 to 9 countries (added DOM, URY); sample window 2000–2024.
+- DEA solver returns NaN for infeasible cases.
 
 ---
 
@@ -153,7 +148,7 @@ This is a conservative approach that preserves the information structure of the 
 ### 1. Requirements
 
 - Python 3.10 or later
-- Three external packages: `numpy`, `pandas`, `openpyxl`
+- `numpy`, `pandas`, `scipy`, `openpyxl`
 
 ```bash
 pip install -r requirements.txt
@@ -166,72 +161,49 @@ git clone https://github.com/carlosyv/tfp-ai-patent-latam.git
 cd tfp-ai-patent-latam
 ```
 
-### 3. Decompress the ILOSTAT File
+The ILOSTAT employment file is stored gzipped and is read directly by the pipeline (`pandas.read_csv` decompresses `.gz` transparently) — no manual decompression is required.
 
-The ILOSTAT employment data is stored in compressed format to comply with GitHub file size limits. Decompress it before running the pipeline:
-
-```bash
-cd data/
-gunzip -k EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz
-```
-
-The `-k` flag keeps the original `.gz` file. The pipeline expects both the `.gz` and uncompressed `.csv` to be present in `data/`.
-
-### 4. Run the Main Pipeline
+### 3. Run the Main Pipeline (Panel A)
 
 From the repository root:
 
 ```bash
-python run_dissertation_v4_noimput_pipeline.py
+python pipeline_v5/run_pipeline_v5.py
 ```
 
-**Expected runtime**: approximately 5–15 minutes depending on hardware (DEA-Malmquist computation is the bottleneck).
+The full econometric report (all estimators, CD tests, mediation, heterogeneity, and quantile regressions) is printed to the console, and the estimation datasets are written to `output/results/`.
 
-**Output**: Results are written to `output/results/benchmark_dissertation_v4_noimput/`. Pre-computed results for the canonical specification are already included in this directory for immediate inspection without re-running.
+### 4. Run the Robustness Panel (Panel B, optional)
 
-### 5. Verify Against Pre-Computed Results
+```bash
+python pipeline_v5/run_pipeline_v5_panelB.py
+```
 
-The `output/results/benchmark_dissertation_v4_noimput/` directory contains the pre-computed results included in the paper. Running the pipeline will overwrite these files with freshly computed results. Numerical equivalence (within floating-point tolerance) confirms successful replication.
+Panel B reuses the shared estimators from Panel A and uses OECD.AI publication counts as the AI measure across 17 countries (2016–2024). It reads `output/results/merged_dissertation_v5.csv`, so run Panel A first.
 
 ---
 
 ## Output Files
 
+All outputs are written to `output/results/`:
+
 | File | Description |
 |---|---|
-| `regression_results.json` | Complete structured results for all hypotheses (H1–H5), all estimators, all specifications. Machine-readable format for downstream analysis. |
-| `regression_comparison.csv` | Publication-ready coefficient comparison table with standard errors, t-statistics, p-values, and significance stars. |
-| `descriptive_statistics.csv` | Summary statistics (N, mean, SD, min, max) for all variables in the final estimation sample. |
-| `correlation_matrix.csv` | Pairwise Pearson correlation matrix for all regression variables. |
-| `tab_solow_full.tex` | LaTeX regression table — Solow TFP, full control specification. Ready for insertion into a LaTeX manuscript. |
-| `tab_solow_pars.tex` | LaTeX regression table — Solow TFP, parsimonious specification. |
-| `tab_malmquist_full.tex` | LaTeX regression table — Malmquist TFP, full control specification. |
-| `tab_malmquist_pars.tex` | LaTeX regression table — Malmquist TFP, parsimonious specification. |
+| `solow_tfp_dissertation_v5.csv` | Country-year Solow TFP levels and PIM capital stock. |
+| `malmquist_dissertation_v5.csv` | DEA-Malmquist TFP change (VRS, main) with efficiency/technical decomposition. |
+| `malmquist_crs_dissertation_v5.csv` | DEA-Malmquist TFP change (CRS, robustness). |
+| `merged_dissertation_v5.csv` | Panel A estimation dataset (TFP measures, AI patent stock, WDI controls). |
+| `merged_panelB_v5.csv` | Panel B estimation dataset (OECD.AI publications, N=17). |
 
----
-
-## Additional Scripts
-
-The following auxiliary scripts are present in the repository root but are not part of the core replication pipeline:
-
-- **`run_dissertation_v4_pipeline.py`** — Imputation variant of v4 (uses linear interpolation for missing values). Used to assess sensitivity of results to the no-imputation assumption.
-- **`build_comparison_v4_table.py`** — Generates a side-by-side Excel workbook comparing imputed vs. no-imputation results across all hypotheses.
-- **`build_comparison_table.py`** — Generates a comparison table across v3 and v4 specifications.
-- **`h3_institutional_comparison.py`** — Robustness script for H3: compares Rule of Law (RL.EST), Regulatory Quality (RQ.EST), and Government Effectiveness (GE.EST) as institutional moderators.
-
-Prior pipeline specifications (v3) are archived in the `deprecated/` directory with a methodological explanation of the model evolution.
+Full regression tables (coefficients, SEs, t-statistics, p-values, significance stars, CD tests) are emitted to the console when the pipeline runs.
 
 ---
 
 ## Notes on Reproducibility
 
-**Cross-sectional dependence**: Pesaran CD test statistics are reported for all models. CCEP and CCEFE are the preferred estimators under cross-sectional dependence. OLS and FE results are included for comparability with prior literature.
-
-**Endogeneity**: Patent-TFP reverse causality is addressed via lagged patent specifications (Lag-1 and Lag-2 robustness checks included in H1). Cumulative patent stock specifications are also tested.
-
-**Data vintage**: All data were downloaded in March 2026. WDI series may be revised by the World Bank; results may differ marginally if the pipeline is run against updated WDI data.
-
-**Random seed**: The DEA-Malmquist computation is deterministic (no stochastic components). Results should be numerically identical across runs given identical input data.
+- **Cross-sectional dependence:** Pesaran CD statistics are reported for all dependent variables; CCEP/CCEFE are preferred under dependence.
+- **Determinism:** No stochastic components — results are numerically identical across runs given identical input data and package versions.
+- **Data vintage:** Data were downloaded in 2026. WDI and OECD.AI series may be revised by their providers; results may differ marginally against updated data.
 
 ---
 
@@ -241,16 +213,15 @@ If you use this code or data in your research, please cite:
 
 > Yalta, C. (2026). *The Impact of AI Adoption on Total Factor Productivity in Latin America*. [Journal name, volume, pages]. DOI: [to be assigned]
 
+Please also cite the primary data providers listed under [Data Licensing & Attribution](#data-licensing--attribution).
+
 ---
 
 ## License
 
 The **code** in this repository is released under the [MIT License](LICENSE).
 
-The **input data** files in `data/` are redistributed under the licenses of their
-original providers (World Bank WDI, Penn World Table, ILOSTAT, and WIPO IP Portal) —
-see [Data Licensing & Attribution](#data-licensing--attribution) above. Please cite
-the primary data sources, not this repository, when reusing the underlying data.
+The **input data** files in `data/` are redistributed under the licenses of their original providers (World Bank WDI, Penn World Table, ILOSTAT, WIPO IP Portal, and OECD.AI) — see [Data Licensing & Attribution](#data-licensing--attribution). Please cite the primary data sources, not this repository, when reusing the underlying data.
 
 ---
 

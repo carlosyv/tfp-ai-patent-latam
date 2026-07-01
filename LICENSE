@@ -24,5 +24,6 @@ SOFTWARE.
 
 NOTE ON DATA: This MIT license applies to the source code only. The input data
 files in the data/ directory are redistributed under the licenses of their
-original providers (World Bank WDI, Penn World Table 10.01, ILOSTAT, and the
-WIPO IP Portal). See the "Data Licensing & Attribution" section of README.md.
+original providers (World Bank WDI, Penn World Table 10.01, ILOSTAT, the WIPO
+IP Portal, and the OECD.AI Policy Observatory). See the "Data Licensing &
+Attribution" section of README.md.
