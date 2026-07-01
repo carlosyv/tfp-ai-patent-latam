@@ -1,0 +1,20 @@
+# =============================================================================
+# requirements.txt — tfp-ai-patent-latam
+# =============================================================================
+# Replication package for:
+# "The Impact of AI Adoption on Total Factor Productivity (TFP) in Latin America"
+#
+# All econometric estimators (OLS, FE, RE, CCEP, CCEFE, Quantile Regression,
+# DEA-Malmquist) are implemented from scratch in NumPy; no external econometrics
+# library is required.
+#
+# Tested on Python 3.10+
+# Install with: pip install -r requirements.txt
+# =============================================================================
+
+# Core numerical and data libraries
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Required for reading .xlsx input data files (WIPO patent data)
+openpyxl>=3.1.0
