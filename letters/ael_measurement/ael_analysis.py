@@ -62,9 +62,9 @@ def parse_wipo(path):
 
 def main():
     # --- patents -> stock (PIM, delta=0.36) ---
-    sp = parse_wipo(DATA / 'ai-search-wipo-results-spanish-v2.xlsx')
+    sp = parse_wipo(DATA / 'wipo' / 'ai-search-wipo-results-spanish-v2.xlsx')
     sp['country'] = sp['cc'].astype(str).str.upper().map(ISO2TO3)
-    pt = parse_wipo(DATA / 'ai-search-wipo-results-br-portuguese-v2.xlsx')
+    pt = parse_wipo(DATA / 'wipo' / 'ai-search-wipo-results-br-portuguese-v2.xlsx')
     pt['country'] = 'BRA'
     pat = (pd.concat([sp, pt])
              .query("country in @COUNTRIES")

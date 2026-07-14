@@ -111,7 +111,7 @@ def extract_data_panelB():
     """Extract WB + PWT + ILOSTAT data for all 17 LatAm countries."""
 
     # ── World Bank ──
-    wb_path = DATA_DIR / 'wb_data_export.csv'
+    wb_path = DATA_DIR / 'wb' / 'wb_data_export.csv'
     wb = pd.read_csv(wb_path)
     print(f"  ✓ World Bank: {wb_path.name}")
 
@@ -153,7 +153,7 @@ def extract_data_panelB():
     solow['CountryName'] = solow['Country'].map(name_map)
 
     # ── PWT Human Capital ──
-    pwt_path = DATA_DIR / 'pwt-data-human-capital-026-03-22T15-56_export.csv'
+    pwt_path = DATA_DIR / 'pwt' / 'pwt-data-human-capital-026-03-22T15-56_export.csv'
     print(f"  ✓ PWT: {pwt_path.name}")
     pwt = pd.read_csv(pwt_path)
     hci = pwt[pwt['Variable code'] == 'hc'].copy()
@@ -178,7 +178,7 @@ def extract_data_panelB():
         print(f"    {c}: {nn}/{total}")
 
     # ── ILOSTAT Employment ──
-    ilo_path = DATA_DIR / 'EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz'
+    ilo_path = DATA_DIR / 'ilostat' / 'EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz'
     print(f"\n  Loading ILOSTAT employment (N=17)...")
     ilostat = pd.read_csv(ilo_path)
     emp = ilostat[

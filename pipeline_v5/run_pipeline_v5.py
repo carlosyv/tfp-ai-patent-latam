@@ -42,11 +42,11 @@ RESULTS_DIR = BASE_DIR / 'output' / 'results'
 OUT_DIR = RESULTS_DIR / 'benchmark_dissertation_v5'
 
 # Data files
-WB_CSV = DATA_DIR / 'wb_data_export.csv'
-PWT_CSV = DATA_DIR / 'pwt-data-human-capital-026-03-22T15-56_export.csv'
-WIPO_SPANISH = DATA_DIR / 'ai-search-wipo-results-spanish-v2.xlsx'
-WIPO_PORTUGUESE = DATA_DIR / 'ai-search-wipo-results-br-portuguese-v2.xlsx'
-ILOSTAT_EMP = DATA_DIR / 'EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz'
+WB_CSV = DATA_DIR / 'wb' / 'wb_data_export.csv'
+PWT_CSV = DATA_DIR / 'pwt' / 'pwt-data-human-capital-026-03-22T15-56_export.csv'
+WIPO_SPANISH = DATA_DIR / 'wipo' / 'ai-search-wipo-results-spanish-v2.xlsx'
+WIPO_PORTUGUESE = DATA_DIR / 'wipo' / 'ai-search-wipo-results-br-portuguese-v2.xlsx'
+ILOSTAT_EMP = DATA_DIR / 'ilostat' / 'EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv.gz'
 
 # Model parameters
 ALPHA = 0.35        # Capital share (Solow)
