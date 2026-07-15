@@ -1,0 +1,72 @@
+D1 — Lag structure vs sample composition
+  GTFP_ML
+    L0: full -0.0026 (SE 0.0134, N=262)   | common-sample -0.0055 (SE 0.0166, N=223)
+    L1: full -0.0073 (SE 0.0054, N=262)   | common-sample -0.0081 (SE 0.0073, N=223)
+    L2: full -0.0230*** (SE 0.0088, N=225)   | common-sample -0.0240*** (SE 0.0090, N=223)
+  MALM_CRS
+    L0: full -0.0248*** (SE 0.0067, N=279)   | common-sample -0.0297*** (SE 0.0075, N=237)
+    L1: full -0.0072 (SE 0.0073, N=279)   | common-sample -0.0038 (SE 0.0094, N=237)
+    L2: full -0.0195*** (SE 0.0018, N=239)   | common-sample -0.0174*** (SE 0.0033, N=237)
+  LN_TFP_SOLOW
+    L0: full +0.0189 (SE 0.0187, N=319)   | common-sample +0.0018 (SE 0.0248, N=237)
+    L1: full +0.0068 (SE 0.0347, N=279)   | common-sample -0.0054 (SE 0.0381, N=237)
+    L2: full +0.0105 (SE 0.0428, N=239)   | common-sample +0.0121 (SE 0.0433, N=237)
+  READ: if full_L2 is significant but common_L2 is not (or sign differs
+  from common_L0/L1), the L2 result is composition, not dynamics.
+
+D2 — ML infeasibility map
+  invalid ML obs: 17 of 280
+  by country: KAZ(7), ZAF(7), BOL(3)
+  by year:    2017(3), 2018(3), 2019(3), 2020(2), 2021(2), 2022(2), 2023(2)
+  CO2-intensity percentile of infeasible countries: KAZ:0.97, ZAF:1.00, BOL:0.75
+
+D3 — Environmental margin: GTFP_ML − MALM_CRS wedge
+  overall wedge: -0.00052 (t=-0.289, p=0.7726); index correlation 0.749
+  AFRICA : wedge +0.00254 (t=0.817, N=77)
+  ASIA   : wedge -0.00219 (t=-0.664, N=70)
+  LATAM  : wedge -0.00155 (t=-0.527, N=116)
+  FE-DK AI(t-1) → wedge: -0.0015 (SE 0.0070, N=262)
+
+D4 — Solow cross-sectional dependence anatomy
+  FE-DK residual CD: {'CD': 5.488, 'p': 0.0}   → CCE-augmented: {'CD': 5.488, 'p': 0.0}
+  LATAM   subsample CD: {'CD': -1.386, 'p': 0.1656}
+  ASIA    subsample CD: {'CD': -1.804, 'p': 0.0713}
+  AFRICA  subsample CD: {'CD': 0.939, 'p': 0.3479}
+
+D5 — Sensitivity of the benchmark (AI L1)
+  GTFP_ML
+    baseline    : -0.0073 (SE 0.0054, N=262)
+    drop_CHN    : -0.0071 (SE 0.0053, N=255)
+    trim_1pct   : -0.0083 (SE 0.0078, N=256)
+    drop_LATAM  : -0.0194** (SE 0.0084, N=147)
+    drop_ASIA   : -0.0033 (SE 0.0080, N=192)
+    drop_AFRICA : -0.0116 (SE 0.0078, N=185)
+  MALM_CRS
+    baseline    : -0.0072 (SE 0.0073, N=279)
+    drop_CHN    : -0.0072 (SE 0.0073, N=272)
+    trim_1pct   : -0.0172* (SE 0.0097, N=273)
+    drop_LATAM  : -0.0330*** (SE 0.0087, N=161)
+    drop_ASIA   : -0.0013 (SE 0.0092, N=202)
+    drop_AFRICA : -0.0023 (SE 0.0081, N=195)
+  LN_TFP_SOLOW
+    baseline    : +0.0068 (SE 0.0347, N=279)
+    drop_CHN    : +0.0061 (SE 0.0350, N=272)
+    drop_LATAM  : +0.0124 (SE 0.0723, N=161)
+    drop_ASIA   : +0.0010 (SE 0.0452, N=202)
+    drop_AFRICA : +0.0163 (SE 0.0106, N=195)
+
+D6a — LatAm-only Canay quantile (publications), this panel
+    τ=0.1: +0.0315*** (boot SE 0.00899123768407603)
+    τ=0.25: +0.0221*** (boot SE 0.005883358550893245)
+    τ=0.5: +0.0194*** (boot SE 0.004288665622477463)
+    τ=0.75: +0.0189*** (boot SE 0.005686053124954038)
+    τ=0.9: +0.0142 (boot SE 0.0089967432066619)
+  READ: Paper 1 (patents, 2000-2024) had negative at all τ; this checks
+  whether the sign difference is measure/window or region composition.
+
+D6b — CCEMG (mean-group with CSAs) benchmark
+    GTFP_ML       : +0.0106 (MG SE 0.0419, 38 country slopes)
+    MALM_CRS      : +0.0281 (MG SE 0.0205, 40 country slopes)
+    LN_TFP_SOLOW  : -0.0029 (MG SE 0.0474, 40 country slopes)
+  NOTE: with T=7-8 the country regressions are heavily parameterised;
+  CCEMG here is indicative, not headline.
