@@ -1,0 +1,83 @@
+
+══════════════════════════════════════════════════════════════════
+STEP 3.1 — Descriptives by region
+══════════════════════════════════════════════════════════════════
+       GTFP_ML               MALM_CRS               LN_TFP_SOLOW                 LN_AI              
+          mean     std count     mean     std count         mean     std count    mean     std count
+REGION                                                                                              
+AFRICA  0.9886  0.0366    77   0.9876  0.0399    84       4.8661  0.4441    96  1.7167  1.2519    96
+ASIA    0.9896  0.0446    70   0.9917  0.0299    77       5.0093  0.2919    88  2.6554  0.8450    88
+LATAM   0.9960  0.0456   116   0.9963  0.0433   119       5.2984  0.3894   136  1.7240  1.0147   135
+
+══════════════════════════════════════════════════════════════════
+STEP 3.2 — Pesaran CD tests (FE-DK residuals, baseline spec)
+══════════════════════════════════════════════════════════════════
+  GTFP_ML       : CD =  1.577  (p = 0.1148)
+  MALM_CRS      : CD = -1.379  (p = 0.1680)
+  LN_TFP_SOLOW  : CD =  5.488  (p = 0.0000)
+
+══════════════════════════════════════════════════════════════════
+STEP 3.3 — Benchmark: LN_AI_L1 → TFP measures (FE-DK / CCEP)
+══════════════════════════════════════════════════════════════════
+  Green TFP (Malmquist–Luenberger)
+    FE-DK : -0.0073 (SE 0.0054, p=0.174, N=262)
+    CCEP  : -0.0073 (SE 0.0054, p=0.175, N=262)
+  Conventional Malmquist (CRS)
+    FE-DK : -0.0072 (SE 0.0073, p=0.329, N=279)
+    CCEP  : -0.0072 (SE 0.0074, p=0.330, N=279)
+  Solow ln(TFP)
+    FE-DK : +0.0068 (SE 0.0347, p=0.845, N=279)
+    CCEP  : +0.0068 (SE 0.0348, p=0.845, N=279)
+
+══════════════════════════════════════════════════════════════════
+STEP 3.4 — Regional heterogeneity
+══════════════════════════════════════════════════════════════════
+  GTFP_ML: base(LatAm) -0.0054 (SE 0.0064, p=0.401, N=262)
+          + Asia    -0.0064 (SE 0.0124, p=0.608, N=262)
+          + Africa  +0.0017 (SE 0.0114, p=0.878, N=262)
+          LATAM  only: -0.0080 (SE 0.0132, p=0.545, N=115)
+          ASIA   only: -0.0509 (SE 0.0577, p=0.382, N=70)
+          AFRICA only: -0.0035 (SE 0.0080, p=0.662, N=77)
+  MALM_CRS: base(LatAm) +0.0116 (SE 0.0108, p=0.288, N=279)
+          + Asia    -0.0326*** (SE 0.0117, p=0.006, N=279)
+          + Africa  -0.0294*** (SE 0.0095, p=0.002, N=279)
+          LATAM  only: +0.0063 (SE 0.0082, p=0.448, N=118)
+          ASIA   only: -0.0364 (SE 0.0278, p=0.196, N=77)
+          AFRICA only: -0.0355*** (SE 0.0067, p=0.000, N=84)
+  LN_TFP_SOLOW: base(LatAm) +0.0295 (SE 0.0231, p=0.202, N=279)
+          + Asia    -0.0156** (SE 0.0073, p=0.033, N=279)
+          + Africa  -0.0748 (SE 0.0541, p=0.168, N=279)
+          LATAM  only: +0.0207 (SE 0.0157, p=0.192, N=118)
+          ASIA   only: +0.0811*** (SE 0.0220, p=0.001, N=77)
+          AFRICA only: -0.0501 (SE 0.1134, p=0.660, N=84)
+
+══════════════════════════════════════════════════════════════════
+STEP 3.5 — Moderation (interaction; moderator demeaned)
+══════════════════════════════════════════════════════════════════
+  GTFP_ML        × Rule of Law     : +0.0046 (SE 0.0078, p=0.558, N=262)
+  GTFP_ML        × Broadband       : -0.0004 (SE 0.0007, p=0.566, N=257)
+  GTFP_ML        × Mobile          : +0.0002*** (SE 0.0001, p=0.002, N=260)
+  GTFP_ML        × Renewables (t-1): -0.0005 (SE 0.0004, p=0.134, N=225)
+  MALM_CRS       × Rule of Law     : -0.0130*** (SE 0.0044, p=0.003, N=279)
+  MALM_CRS       × Broadband       : -0.0005* (SE 0.0003, p=0.094, N=274)
+  MALM_CRS       × Mobile          : +0.0000 (SE 0.0001, p=0.987, N=277)
+  MALM_CRS       × Renewables (t-1): -0.0000 (SE 0.0001, p=0.775, N=240)
+  LN_TFP_SOLOW   × Rule of Law     : -0.0685 (SE 0.0515, p=0.185, N=279)
+  LN_TFP_SOLOW   × Broadband       : +0.0017** (SE 0.0007, p=0.020, N=274)
+  LN_TFP_SOLOW   × Mobile          : +0.0004 (SE 0.0002, p=0.104, N=277)
+  LN_TFP_SOLOW   × Renewables (t-1): -0.0006*** (SE 0.0002, p=0.004, N=240)
+
+══════════════════════════════════════════════════════════════════
+STEP 3.7 — Robustness
+══════════════════════════════════════════════════════════════════
+  contemporaneous LN_AI            → GTFP_ML       : -0.0026 (SE 0.0134, p=0.843, N=262)
+  contemporaneous LN_AI            → MALM_CRS      : -0.0248*** (SE 0.0067, p=0.000, N=279)
+  contemporaneous LN_AI            → LN_TFP_SOLOW  : +0.0189 (SE 0.0187, p=0.313, N=319)
+  unnormalised ln(1+pubs), lag     → GTFP_ML       : -0.0021 (SE 0.0040, p=0.596, N=262)
+  unnormalised ln(1+pubs), lag     → MALM_CRS      : -0.0004 (SE 0.0038, p=0.916, N=279)
+  unnormalised ln(1+pubs), lag     → LN_TFP_SOLOW  : -0.0010 (SE 0.0166, p=0.950, N=279)
+  two-period lag                   → GTFP_ML       : -0.0230*** (SE 0.0088, p=0.010, N=225)
+  two-period lag                   → MALM_CRS      : -0.0195*** (SE 0.0018, p=0.000, N=239)
+  two-period lag                   → LN_TFP_SOLOW  : +0.0105 (SE 0.0428, p=0.807, N=239)
+
+  NOTE: collapsed-instrument system GMM not run here — no reliable Python implementation; use Stata xtabond2 or add pydynpd.
