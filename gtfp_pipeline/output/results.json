@@ -798,5 +798,52 @@
       "p": 0.9713,
       "N": 223
     }
-  ]
+  ],
+  "gmm_system_collapsed": {
+    "GTFP_ML": {
+      "error": "parse: 'AR_test_info' object has no attribute 'p_value'",
+      "b": 0.0114,
+      "se": 0.0094,
+      "p": 0.2251,
+      "rho": -0.0073,
+      "rho_p": 0.9525,
+      "N": 184,
+      "n_countries": 38,
+      "n_instruments": 17,
+      "hansen_p": 0.0757,
+      "ar1_p": 0.0253,
+      "ar2_p": 0.0209,
+      "sane": false
+    },
+    "MALM_CRS": {
+      "error": "parse: 'AR_test_info' object has no attribute 'p_value'",
+      "b": 0.0158,
+      "se": 0.0125,
+      "p": 0.2065,
+      "rho": -0.2229,
+      "rho_p": 0.015,
+      "N": 197,
+      "n_countries": 40,
+      "n_instruments": 17,
+      "hansen_p": 0.0008,
+      "ar1_p": 0.0015,
+      "ar2_p": 0.1211,
+      "sane": false
+    },
+    "LN_TFP_SOLOW": {
+      "error": "parse: 'AR_test_info' object has no attribute 'p_value'",
+      "b": -0.0122,
+      "se": 0.0275,
+      "p": 0.6567,
+      "rho": 0.8598,
+      "rho_p": 0.0002,
+      "N": 197,
+      "n_countries": 40,
+      "n_instruments": 17,
+      "hansen_p": 0.0283,
+      "ar1_p": 0.0739,
+      "ar2_p": 0.2617,
+      "sane": true
+    }
+  }
 }
