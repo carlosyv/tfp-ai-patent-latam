@@ -1,0 +1,41 @@
+{
+  "R1_baseline": {
+    "within2way_r": 0.068,
+    "within2way_p": 0.5492,
+    "between_r": 0.907,
+    "N": 81
+  },
+  "R2_delta_022": {
+    "within2way_r": 0.112,
+    "within2way_p": 0.3225,
+    "between_r": 0.897,
+    "N": 81
+  },
+  "R3_per_gdp": {
+    "within2way_r": -0.007,
+    "within2way_p": 0.9509,
+    "between_r": 0.832,
+    "N": 81
+  },
+  "R4_drop_BRA": {
+    "within2way_r": 0.131,
+    "within2way_p": 0.2746,
+    "between_r": 0.869,
+    "N": 72
+  },
+  "R5a_2016_2020": {
+    "within2way_r": 0.513,
+    "within2way_p": 0.0002,
+    "N": 45
+  },
+  "R5b_2021_2024": {
+    "within2way_r": -0.383,
+    "within2way_p": 0.0204,
+    "N": 36
+  },
+  "R6_spearman_within": {
+    "within2way_rho": 0.007,
+    "within2way_p": 0.9523,
+    "N": 81
+  }
+}
