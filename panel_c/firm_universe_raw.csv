@@ -1,0 +1,154 @@
+cik,name,ticker,exchange,addr_country,country_hq_guess,sic,sic_desc,form_type,n_annual_2018plus,first_annual,last_annual,via
+1001838,SOUTHERN COPPER CORP/,SCCO,NYSE,AZ,,1000,Metal Mining,10-K,13,2018-03-01,2026-02-27,curation:SOUTHERN COPPER
+1273441,GRAN TIERRA ENERGY INC.,GTE,NYSE,"Alberta, Canada",,1311,Crude Petroleum & Natural Gas,10-K,6,2021-02-25,2026-03-04,curation:GRAN TIERRA
+787253,NATURAL ALTERNATIVES INTERNATIONAL INC,NAII,Nasdaq,CA,,2833,Medicinal Chemicals & Botanical Products,10-K,8,2018-09-19,2025-09-23,curation:NATURA
+912061,NATURAL HEALTH TRENDS CORP,NHTC,Nasdaq,CA,,5190,Wholesale-Miscellaneous Nondurable Goods,10-K,11,2018-03-27,2026-02-20,curation:NATURA
+1405513,"United States 12 Month Natural Gas Fund, LP",UNL,NYSE,CA,,6221,Commodity Contracts Brokers & Dealers,10-K,9,2018-03-21,2026-03-04,curation:NATURA
+1376227,"United States Natural Gas Fund, LP",UNG,NYSE,CA,,6221,Commodity Contracts Brokers & Dealers,10-K,9,2018-02-28,2026-02-27,curation:NATURA
+1547459,"Natural Grocers by Vitamin Cottage, Inc.",NGVC,NYSE,CO,,5411,Retail-Grocery Stores,10-K,8,2018-12-06,2025-12-11,curation:NATURA
+1819615,Clever Leaves Holdings Inc.,,,Colombia,Colombia,2834,Pharmaceutical Preparations,10-K,5,2021-03-30,2024-04-01,address:20-F
+1691906,"ANTILIA GROUP, CORP.",,,Dominican Republic,Dominican Republic,5500,Retail-Auto Dealers & Gasoline Stations,10-K,2,2018-04-16,2019-05-24,address:20-F
+1918884,Metaterra Corp.,,,Dominican Republic,Dominican Republic,5531,Retail-Auto & Home Supply Stores,10-K,1,2023-03-31,2023-03-31,address:20-F
+1994582,Oyocar Group Inc.,OYCG,OTC,Dominican Republic,Dominican Republic,5500,Retail-Auto Dealers & Gasoline Stations,10-K,2,2024-11-13,2025-11-24,address:20-F
+1787123,QLY Biotech Group Corp.,,,Dominican Republic,Dominican Republic,4700,Transportation Services,10-K,3,2020-10-06,2022-12-14,address:20-F
+1540684,Atlas Lithium Corp,ATLX,Nasdaq,FL,,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),10-K,12,2018-04-17,2026-03-04,curation:ATLAS LITHIUM
+1534675,Tecnoglass Inc.,TGLS,NYSE,FL,,3211,Flat Glass,10-K,9,2018-03-14,2026-03-02,curation:TECNOGLASS
+1609880,ALPHACOM HOLDINGS INC,,,Mexico,Mexico,1040,Gold and Silver Ores,10-K,1,2018-07-16,2018-07-16,address:20-F
+1973047,MARKY CORP.,,,Mexico,Mexico,7370,"Services-Computer Programming, Data Processing, Etc.",10-K,3,2024-05-06,2025-04-30,address:20-F
+1612188,TEO FOODS INC,,,Mexico,Mexico,2090,Miscellaneous Food Preparations & Kindred Products,10-K,6,2019-04-16,2023-04-17,address:20-F
+1980088,MACH NATURAL RESOURCES LP,MNR,NYSE,OK,,1311,Crude Petroleum & Natural Gas,10-K,3,2024-04-01,2026-03-12,curation:NATURA
+1733998,Northwest Natural Holding Co,NWN,NYSE,OR,,4924,Natural Gas Distribution,10-K,8,2019-03-01,2026-02-27,curation:NATURA
+1710366,"Core Natural Resources, Inc.",CNR,NYSE,PA,,1220,Silver Ores,10-K,10,2018-02-16,2026-02-27,curation:NATURA
+1699126,Ciclet Holdings Inc.,,,Philippines,Peru,7372,Services-Prepackaged Software,10-K,5,2020-12-02,2022-05-02,address:20-F
+1612851,"Palayan Resources, Inc.",,,Philippines,Peru,1040,Gold and Silver Ores,10-K,5,2018-07-02,2022-06-28,address:20-F
+1673431,"South East Asia Development, Corp.",,,Philippines,Peru,2800,Chemicals & Allied Products,10-K,6,2019-04-15,2024-06-03,address:20-F
+1020859,UNITED NATURAL FOODS INC,UNFI,NYSE,RI,,5141,"Wholesale-Groceries, General Line",10-K,8,2018-09-24,2025-10-01,curation:NATURA
+1084991,NATURAL GAS SERVICES GROUP INC,NGS,NYSE,TX,,1389,"Oil & Gas Field Services, NEC",10-K,11,2018-03-09,2026-03-16,curation:NATURA
+1171486,NATURAL RESOURCE PARTNERS LP,NRP,NYSE,TX,,1221,Bituminous Coal & Lignite Surface Mining,10-K,10,2018-03-01,2026-02-27,curation:NATURA
+1680689,"Natural Resource Holdings, Inc.",NRHI,OTC,TX,,5960,Retail-Nonstore Retailers,10-K,9,2018-08-13,2025-07-11,curation:NATURA
+1099590,MERCADOLIBRE INC,MELI,Nasdaq,Uruguay,Uruguay,7389,"Services-Business Services, NEC",10-K,10,2018-02-23,2026-02-25,address:20-F;curation:MERCADOLIBRE
+2029118,"INFINITY NATURAL RESOURCES, INC.",INR,NYSE,WV,,1311,Crude Petroleum & Natural Gas,10-K,2,2025-03-28,2026-03-10,curation:NATURA
+1565025,AMBEV S.A.,ABEV,NYSE,,,2080,Beverages,20-F,9,2018-03-19,2026-03-03,curation:AMBEV
+1129137,AMERICA MOVIL SAB DE CV/,AMX;AMXOF,NYSE;OTC,,,4813,Telephone Communications (No Radiotelephone),20-F,11,2018-04-26,2026-04-28,curation:AMERICA MOVIL
+1799207,AUNA S.A.,AUNA,NYSE,,,8011,Services-Offices & Clinics of  Doctors of  Medicine,20-F,3,2025-04-10,2026-04-22,curation:AUNA
+1439124,AXIA Energia S.A.,AXIA;AXIA-PC,NYSE;NYSE,,,4911,Electric Services,20-F,5,2022-10-03,2026-04-24,curation:manual:Eletrobras
+1771007,Afya Ltd,AFYA,Nasdaq,,,8200,Services-Educational Services,20-F,7,2020-04-20,2026-03-31,curation:AFYA
+1027552,BANCO SANTANDER CHILE,BSAC,NYSE,,,6029,"Commercial Banks, NEC",20-F,9,2018-03-28,2026-02-27,curation:manual:Banco Santander-Chile
+1160330,BANK BRADESCO,BBD;BBDO,NYSE;NYSE,,,6022,State Commercial Banks,20-F,9,2018-04-30,2026-03-25,curation:BRADESCO
+1788257,"BETTERWARE DE MEXICO, S.A.P.I. DE C.V",BWMX,NYSE,,,5961,Retail-Catalog & Mail-Order Houses,20-F,8,2020-05-04,2026-04-30,curation:BETTERWARE
+1071438,BRASKEM SA,BAK,NYSE,,,2860,Industrial Organic Chemicals,20-F,7,2020-06-15,2026-04-20,curation:BRASKEM
+1122491,BRF S.A.,,,,,2011,Meat Packing Plants,20-F,9,2018-04-30,2025-04-30,curation:manual:BRF
+913059,Banco BBVA Argentina S.A.,BBAR,NYSE,,,6029,"Commercial Banks, NEC",20-F,10,2018-05-02,2026-04-09,curation:BBVA ARGENTINA
+1499849,BrasilAgro - Brazilian Agricultural Real Estate Co,LND,NYSE,,,0100,Agricultural Production-Crops,20-F,9,2018-10-30,2025-10-30,curation:BRASILAGRO
+1717161,CENTRAL PUERTO S.A.,CEPU,NYSE,,,4911,Electric Services,20-F,12,2018-04-27,2026-04-22,curation:CENTRAL PUERTO
+793628,CHINA NATURAL RESOURCES INC,CHNR,Nasdaq,,,1040,Gold and Silver Ores,20-F,14,2018-04-30,2026-05-15,curation:NATURA
+1170858,COMPANHIA DE SANEAMENTO BASICO DO ESTADO DE SAO PAULO-SABESP,SBS,NYSE,,,4941,Water Supply,20-F,12,2018-04-27,2026-04-29,curation:SABESP
+1717393,CORPORACION AMERICA AIRPORTS S.A.,CAAP,NYSE,,,4581,"Airports, Flying Fields & Airport Terminal Services",20-F,10,2018-04-27,2026-03-17,curation:CORPORACION AMERICA
+1001290,CREDICORP LTD,BAP,NYSE,,,6029,"Commercial Banks, NEC",20-F,11,2018-04-26,2026-04-27,curation:CREDICORP
+1520504,"Controladora Vuela Compania de Aviacion, S.A.B. de C.V.",VLRS;CTTRF,NYSE;OTC,,,4512,"Air Transportation, Scheduled",20-F,9,2018-04-26,2026-04-28,curation:manual:Volaris
+1703141,"Despegar.com, Corp.",,,,,4700,Transportation Services,20-F,9,2018-04-24,2025-04-30,curation:manual:Despegar
+1444406,ECOPETROL S.A.,EC,NYSE,,,1311,Crude Petroleum & Natural Gas,20-F,10,2018-04-19,2026-04-30,curation:ECOPETROL
+1395213,EDENOR,EDN,NYSE,,,4911,Electric Services,20-F,10,2018-04-27,2026-04-15,curation:EDENOR
+1157557,ENERGY CO OF MINAS GERAIS,CIG;CIG-C,NYSE;NYSE,,,4911,Electric Services,20-F,13,2018-05-09,2026-04-17,curation:manual:Cemig
+1041792,ENERGY CO OF PARANA,ELPC,NYSE,,,4911,Electric Services,20-F,10,2020-04-27,2026-04-16,curation:manual:Copel
+1073404,GERDAU S.A.,GGB,NYSE,,,3310,"Steel Works, Blast Furnaces & Rolling & Finishing Mills",20-F,9,2018-04-03,2026-03-13,curation:GERDAU
+912892,"GRUPO TELEVISA, S.A.B.",TV;GRPFF,NYSE;OTC,,,4833,Television Broadcasting Stations,20-F,10,2018-02-15,2026-04-30,curation:GRUPO TELEVISA
+1047716,LATAM AIRLINES GROUP S.A.,LTM,NYSE,,,4512,"Air Transportation, Scheduled",20-F,9,2018-04-05,2026-03-05,curation:LATAM AIRLINES
+1945711,Lavoro Ltd,LVROF;LVRWF,OTC;OTC,,,5900,Retail-Miscellaneous Retail,20-F,4,2023-03-06,2025-12-30,curation:manual:Lavoro
+1061736,MEXICAN ECONOMIC DEVELOPMENT INC,FMX,NYSE,,,2086,Bottled & Canned Soft Drinks & Carbonated Waters,20-F,9,2018-04-24,2026-04-24,curation:manual:FEMSA
+1049659,NATIONAL STEEL CO,SID,NYSE,,,3310,"Steel Works, Blast Furnaces & Rolling & Finishing Mills",20-F,13,2018-05-01,2026-04-30,curation:manual:CSN
+1713930,Nexa Resources S.A.,NEXA,NYSE,,,1000,Metal Mining,20-F,13,2018-04-30,2026-03-26,curation:NEXA RESOURCES
+1119639,PETROBRAS - PETROLEO BRASILEIRO SA,PBR;PBR-A,NYSE;NYSE,,,1311,Crude Petroleum & Natural Gas,20-F,4,2023-03-29,2026-04-09,curation:PETROBRAS
+1347557,Pacific Airport Group,PAC;GPAEF,NYSE;OTC,,,4581,"Airports, Flying Fields & Airport Terminal Services",20-F,9,2018-04-20,2026-04-17,curation:manual:GAP
+1712807,PagSeguro Digital Ltd.,PAGS,NYSE,,,7374,Services-Computer Processing & Data Preparation,20-F,12,2018-04-06,2026-06-04,curation:PAGSEGURO
+1123452,SOUTHEAST AIRPORT GROUP,ASR;ASRMF,NYSE;OTC,,,4581,"Airports, Flying Fields & Airport Terminal Services",20-F,10,2018-04-26,2026-04-16,curation:manual:ASUR
+1863362,Sofgen Pharma S.A.,PROCF;PRCWF,OTC;OTC,,,2834,Pharmaceutical Preparations,20-F,6,2021-09-30,2026-03-16,curation:manual:Procaps
+932470,TELECOM ARGENTINA SA,TEO;TCMFF,NYSE;OTC,,,4813,Telephone Communications (No Radiotelephone),20-F,9,2018-04-20,2026-03-11,curation:TELECOM ARGENTINA
+917851,Vale S.A.,VALE,NYSE,,,1000,Metal Mining,20-F,5,2022-04-14,2026-03-27,curation:VALE S
+1826286,Vinci Compass Investments Ltd.,VINP,Nasdaq,,,6282,Investment Advice,20-F,7,2021-04-27,2026-04-20,curation:VINCI COMPASS
+1762506,"Vista Energy, S.A.B. de C.V.",VIST;VSOGF,NYSE;OTC,,,1311,Crude Petroleum & Natural Gas,20-F,7,2020-04-30,2026-04-28,curation:VISTA ENERGY
+904851,YPF SOCIEDAD ANONIMA,YPF,NYSE,,,2911,Petroleum Refining,20-F,9,2018-04-24,2026-03-26,curation:YPF
+1034957,CRESUD INC,CRESY,Nasdaq,Argentina,Argentina,6500,Real Estate,20-F,13,2018-10-31,2026-06-30,address:20-F;curation:CRESUD
+931427,GAS TRANSPORTER OF THE SOUTH INC,TGS,NYSE,Argentina,Argentina,4922,Natural Gas Transmission,20-F,9,2018-04-16,2026-04-22,address:20-F
+1114700,GRUPO FINANCIERO GALICIA SA,GGAL,Nasdaq,Argentina,Argentina,6029,"Commercial Banks, NEC",20-F,11,2018-04-19,2026-04-16,address:20-F;curation:GRUPO FINANCIERO GALICIA
+1517399,Grupo Supervielle S.A.,SUPV,NYSE,Argentina,Argentina,6029,"Commercial Banks, NEC",20-F,11,2018-04-27,2026-04-08,address:20-F;curation:GRUPO SUPERVIELLE
+933267,IRSA INVESTMENTS & REPRESENTATIONS INC,IRS,NYSE,Argentina,Argentina,6552,Land Subdividers & Developers (No Cemeteries),20-F,15,2018-10-31,2026-06-30,address:20-F;curation:IRSA
+1128173,IRSA PROPIEDADES COMERCIALES S.A.,,,Argentina,Argentina,6512,Opeators of  Nonresidential Buildings,20-F,8,2018-10-23,2021-10-20,address:20-F
+1711375,Loma Negra Compania Industrial Argentina Sociedad Anonima,LOMA,NYSE,Argentina,Argentina,3241,"Cement, Hydraulic",20-F,12,2018-04-27,2026-04-28,address:20-F;curation:LOMA NEGRA
+1469395,Pampa Energy Inc.,PAM;PPENF,NYSE;OTC,Argentina,Argentina,4911,Electric Services,20-F,10,2018-04-30,2026-04-09,address:20-F
+1551206,Patagonia Gold Corp.,,,Argentina,Argentina,1040,Gold and Silver Ores,20-F,10,2018-04-17,2022-07-22,address:20-F
+1449877,Petrobras Argentina S.A.,,,Argentina,Argentina,1311,Crude Petroleum & Natural Gas,20-F,1,2018-04-30,2018-04-30,address:20-F
+1684688,ATLAS CRITICAL MINERALS Corp,ATCX,Nasdaq,Brazil,Brazil,1040,Gold and Silver Ores,20-F,11,2018-01-04,2026-02-20,address:20-F
+1432364,AZUL SA,AZUL;AZUXY,NYSE;OTC,Brazil,Brazil,4512,"Air Transportation, Scheduled",20-F,12,2018-04-27,2026-04-03,address:20-F;curation:AZUL
+1937441,Ambipar Emergency Response,AMBIQ,OTC,Brazil,Brazil,4955,Hazardous Waste Management,20-F,4,2023-03-07,2025-06-24,address:20-F;curation:AMBIPAR
+1740594,Arco Platform Ltd.,,,Brazil,Brazil,8200,Services-Educational Services,20-F,6,2019-04-17,2023-03-31,address:20-F
+1038572,BRAZILIAN DISTRIBUTION CO COMPANHIA BRASILEIRA DE DISTR CBD,,,Brazil,Brazil,5411,Retail-Grocery Stores,20-F,9,2018-04-30,2024-06-28,address:20-F
+1471055,Banco Santander (Brasil) S.A.,BSBR,NYSE,Brazil,Brazil,6029,"Commercial Banks, NEC",20-F,10,2018-04-09,2026-02-27,address:20-F
+1300482,CPFL Energy INC,,,Brazil,Brazil,4911,Electric Services,20-F,4,2018-04-24,2020-04-24,address:20-F
+1402902,Cosan Ltd.,,,Brazil,Brazil,2060,Sugar & Confectionery Products,20-F,6,2018-04-27,2020-06-22,address:20-F
+1430162,Cosan S.A.,CSAN,NYSE,Brazil,Brazil,5500,Retail-Auto Dealers & Gasoline Stations,20-F,10,2021-04-30,2026-04-10,address:20-F;curation:COSAN
+1355444,EMBRAER S.A.,EMBJ,NYSE,Brazil,Brazil,3721,Aircraft,20-F,9,2018-03-23,2026-03-30,address:20-F;curation:EMBRAER
+1716586,"ESTRE AMBIENTAL, INC.",,,Brazil,Brazil,4953,Refuse Systems,20-F,4,2018-06-20,2019-06-07,address:20-F
+1956746,Equifax do Brasil S.A.,,,Brazil,Brazil,7320,"Services-Consumer Credit Reporting, Collection Agencies",20-F,1,2024-05-10,2024-05-10,address:20-F
+1110649,Fibria Celulose S.A.,,,Brazil,Brazil,2621,Paper Mills,20-F,1,2018-02-27,2018-02-27,address:20-F
+1389207,Gafisa S.A.,GFASY;GFSAY,OTC;OTC,Brazil,Brazil,1520,General Bldg Contractors - Residential Bldgs,20-F,6,2018-04-30,2022-08-01,address:20-F
+1867325,Getnet Adquirencia E Servicos Para Meios De Pagamento S.A. - Instituicao De Pagamento,,,Brazil,Brazil,7389,"Services-Business Services, NEC",20-F,1,2022-03-10,2022-03-10,address:20-F
+1291733,Gol Intelligent Airlines Inc.,,,Brazil,Brazil,4512,"Air Transportation, Scheduled",20-F,9,2018-04-30,2024-05-15,address:20-F
+1864163,"Inter & Co, Inc.",INTR,Nasdaq,Brazil,Brazil,6029,"Commercial Banks, NEC",20-F,5,2022-05-02,2026-04-30,address:20-F;curation:INTER & CO
+1132597,Itau Unibanco Holding S.A.,ITUB,NYSE,Brazil,Brazil,6022,State Commercial Banks,20-F,7,2020-04-27,2026-04-30,address:20-F;curation:ITAU
+1450123,JBS S.A.,,,Brazil,Brazil,2011,Meat Packing Plants,20-F,4,2024-03-27,2025-03-26,address:20-F
+1776967,Natura &Co Holding S.A.,,,Brazil,Brazil,2844,"Perfumes, Cosmetics & Other Toilet Preparations",20-F,7,2020-05-06,2024-05-14,address:20-F
+1562767,Netshoes (Cayman) Ltd.,,,Brazil,Brazil,5961,Retail-Catalog & Mail-Order Houses,20-F,2,2018-03-29,2019-04-30,address:20-F
+1691493,Nu Holdings Ltd.,NU,NYSE,Brazil,Brazil,6199,Finance Services,20-F,5,2022-04-21,2026-04-08,address:20-F;curation:NU HOLDINGS
+1160846,OI S.A. - In Judicial Reorganization,,,Brazil,Brazil,4813,Telephone Communications (No Radiotelephone),20-F,4,2018-05-16,2021-05-12,address:20-F
+1896049,"Semantix, Inc.",,,Brazil,Brazil,7371,Services-Computer Programming Services,20-F,2,2022-08-09,2023-04-28,address:20-F
+1834048,Sendas Distributor S.A.,ASAIY,OTC,Brazil,Brazil,5411,Retail-Grocery Stores,20-F,5,2021-04-29,2025-04-01,address:20-F
+909327,Suzano S.A.,SUZ,NYSE,Brazil,Brazil,2621,Paper Mills,20-F,8,2019-04-30,2026-03-24,address:20-F;curation:SUZANO
+1066119,TELEFONICA BRASIL S.A.,VIV,NYSE,Brazil,Brazil,4813,Telephone Communications (No Radiotelephone),20-F,10,2018-02-21,2026-02-24,address:20-F;curation:TELEFONICA BRASIL
+1066116,TIM PARTICIPACOES SA,,,Brazil,Brazil,4813,Telephone Communications (No Radiotelephone),20-F,5,2018-04-06,2020-05-01,address:20-F
+1826168,TIM S.A.,TIMB,NYSE,Brazil,Brazil,4813,Telephone Communications (No Radiotelephone),20-F,7,2021-04-30,2026-03-30,address:20-F;curation:TIM S.A
+1094972,ULTRAPAR HOLDINGS INC,UGP,NYSE,Brazil,Brazil,4924,Natural Gas Distribution,20-F,11,2018-04-09,2026-05-19,address:20-F;curation:ULTRAPAR
+1792829,Vasta Platform Ltd,,,Brazil,Brazil,8200,Services-Educational Services,20-F,6,2021-04-30,2025-04-17,address:20-F
+1805012,Vitru Ltd,,,Brazil,Brazil,8200,Services-Educational Services,20-F,5,2021-04-29,2024-04-30,address:20-F
+1836934,Zenvia Inc.,ZENVF,OTC,Brazil,Brazil,7372,Services-Prepackaged Software,20-F,4,2022-03-31,2025-05-16,address:20-F
+1769484,Bioceres Crop Solutions Corp.,BIOX,Nasdaq,Cayman Islands,,2870,Agricultural Chemicals,20-F,7,2019-10-24,2025-11-10,curation:BIOCERES
+1868995,CI&T Inc,CINT,NYSE,Cayman Islands,,7371,Services-Computer Programming Services,20-F,5,2022-04-22,2026-03-11,curation:manual:CI&T
+1965143,Nvni Group Ltd,NVNI;NVNIW,Nasdaq;Nasdaq,Cayman Islands,,7372,Services-Prepackaged Software,20-F,5,2023-09-29,2026-04-30,curation:manual:Nuvini
+1825570,Patria Investments Ltd,PAX,Nasdaq,Cayman Islands,,6282,Investment Advice,20-F,8,2021-04-28,2026-04-30,curation:PATRIA INVEST
+1745431,StoneCo Ltd.,STNE,Nasdaq,Cayman Islands,,7374,Services-Computer Processing & Data Preparation,20-F,9,2019-04-29,2026-04-23,curation:STONECO
+1793663,VTEX,VTEX,NYSE,Cayman Islands,,7372,Services-Prepackaged Software,20-F,5,2022-02-24,2026-02-26,curation:VTEX
+1787425,XP Inc.,XP,Nasdaq,Cayman Islands,,6211,"Security Brokers, Dealers & Flotation Companies",20-F,8,2020-04-29,2026-04-29,curation:XP INC
+925261,ANDINA BOTTLING CO INC,AKO.B;AKO-B;AKO-A,NYSE;NYSE,Chile,Chile,2086,Bottled & Canned Soft Drinks & Carbonated Waters,20-F,9,2018-04-27,2026-04-01,address:20-F
+1276671,BANCO ITAU CHILE,,,Chile,Chile,6029,"Commercial Banks, NEC",20-F,7,2018-04-11,2023-04-27,address:20-F
+1161125,BANK OF CHILE,BCH,NYSE,Chile,Chile,6029,"Commercial Banks, NEC",20-F,9,2018-04-27,2026-04-30,address:20-F
+909037,CHEMICAL & MINING CO OF CHILE INC,SQM,NYSE,Chile,Chile,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),20-F,10,2018-04-19,2026-04-22,address:20-F
+930543,CONCHA Y TORO WINERY INC,,,Chile,Chile,5180,"Wholesale-Beer, Wine & Distilled Alcoholic Beverages",20-F,3,2018-04-27,2019-05-15,address:20-F
+912505,ENEL AMERICAS S.A.,,,Chile,Chile,4911,Electric Services,20-F,6,2018-04-30,2022-04-29,address:20-F
+926864,ENEL GENERACION CHILE S.A.,,,Chile,Chile,4911,Electric Services,20-F,4,2018-04-27,2020-04-29,address:20-F
+1659939,Enel Chile S.A.,ENIC,NYSE,Chile,Chile,4911,Electric Services,20-F,10,2018-04-27,2026-04-28,address:20-F;curation:ENEL CHILE
+888746,UNITED BREWERIES CO INC,CCU,NYSE,Chile,Chile,2082,Malt Beverages,20-F,10,2018-04-27,2026-04-29,address:20-F
+1816815,Bon Natural Life Ltd,BON,Nasdaq,China,,2833,Medicinal Chemicals & Botanical Products,20-F,9,2022-01-31,2026-01-23,curation:NATURA
+1575969,Avianca Holdings S.A.,,,Colombia,Colombia,4512,"Air Transportation, Scheduled",20-F,5,2018-05-01,2021-05-03,address:20-F
+1071371,BANCOLOMBIA SA,,,Colombia,Colombia,6029,"Commercial Banks, NEC",20-F,8,2018-04-30,2025-03-28,address:20-F
+1464591,GeoPark Ltd,GPRK,NYSE,Colombia,Colombia,1311,Crude Petroleum & Natural Gas,20-F,9,2018-04-12,2026-03-31,address:20-F;curation:GEOPARK
+1504764,Grupo Aval Acciones Y Valores S.A.,AVAL,NYSE,Colombia,Colombia,6029,"Commercial Banks, NEC",20-F,9,2018-04-27,2026-04-17,address:20-F;curation:GRUPO AVAL
+1499505,Adecoagro S.A.,AGRO,NYSE,Luxembourg,,0100,Agricultural Production-Crops,20-F,9,2018-04-27,2026-04-29,curation:ADECOAGRO
+1557860,Globant S.A.,GLOB,NYSE,Luxembourg,,7374,Services-Computer Processing & Data Preparation,20-F,9,2018-04-13,2026-02-27,curation:GLOBANT
+1190723,TENARIS SA,TS;TNRSF,NYSE;OTC,Luxembourg,,3312,"Steel Works, Blast Furnaces & Rolling Mills (Coke Ovens)",20-F,9,2018-04-30,2026-03-31,curation:TENARIS
+1342874,Ternium S.A.,TX,NYSE,Luxembourg,,3312,"Steel Works, Blast Furnaces & Rolling Mills (Coke Ovens)",20-F,9,2018-04-24,2026-03-31,curation:TERNIUM
+1978954,BBB FOODS INC,TBBB,NYSE,Mexico,Mexico,5411,Retail-Grocery Stores,20-F,4,2024-04-30,2026-05-22,address:20-F
+1698287,"Banco Santander Mexico S.A., Institucion de Banca Multiple, Grupo Financiero Santander Mexico",,,Mexico,Mexico,6029,"Commercial Banks, NEC",20-F,8,2018-03-28,2023-02-28,address:20-F
+1076378,CEMEX SAB DE CV,CX;CXMSF,NYSE;OTC,Mexico,Mexico,3241,"Cement, Hydraulic",20-F,9,2018-04-30,2026-04-24,address:20-F;curation:CEMEX
+910631,COCA COLA FEMSA SAB DE CV,KOF;COCSF,NYSE;OTC,Mexico,Mexico,2086,Bottled & Canned Soft Drinks & Carbonated Waters,20-F,9,2018-04-18,2026-04-16,address:20-F
+932782,MEXICAN PETROLEUM,,,Mexico,Mexico,1311,Crude Petroleum & Natural Gas,20-F,9,2018-04-30,2026-04-30,address:20-F
+1969373,"Vesta Real Estate Corporation, S.A.B. de C.V.",VTMX,NYSE,Mexico,Mexico,6500,Real Estate,20-F,3,2024-04-19,2026-03-17,address:20-F
+1378239,Central North Airport Group,OMAB;GAERF,Nasdaq;OTC,NY,,4581,"Airports, Flying Fields & Airport Terminal Services",20-F,9,2018-04-30,2026-04-30,curation:manual:OMA
+887153,"GRUPO SIMEC, S.A.B. de C.V.",SIM,NYSE,NY,,3312,"Steel Works, Blast Furnaces & Rolling Mills (Coke Ovens)",20-F,12,2018-05-16,2025-10-02,curation:manual:Simec
+1044896,Industrias Bachoco S.A.B. de C.V.,,,NY,,2015,Poultry Slaughtering and Processing,20-F,5,2018-04-27,2022-04-29,curation:manual:Bachoco
+1345105,"Copa Holdings, S.A.",CPA,NYSE,Panama,Peru,4512,"Air Transportation, Scheduled",20-F,10,2018-04-18,2026-02-26,address:20-F
+1572621,AENZA S.A.A.,,,Peru,,1600,Heavy Construction Other Than Bldg Const - Contractors,20-F,10,2018-05-16,2024-05-13,curation:manual:AENZA
+1013131,BUENAVENTURA MINING CO INC,BVN,NYSE,Peru,,1000,Metal Mining,20-F,10,2018-04-30,2026-04-30,curation:BUENAVENTURA
+1615903,Intercorp Financial Services Inc.,IFS,NYSE,Peru,,6029,"Commercial Banks, NEC",20-F,7,2020-04-22,2026-04-24,curation:manual:Intercorp/IFS
+1508478,Arcos Dorados Holdings Inc.,ARCO,NYSE,Uruguay,Uruguay,5812,Retail-Eating  Places,20-F,9,2018-04-27,2026-04-30,address:20-F;curation:ARCOS DORADOS
+1506042,Navios South American Logistics Inc.,,,Uruguay,Uruguay,4731,Arrangement of  Transportation of  Freight & Cargo,20-F,7,2018-03-28,2024-04-29,address:20-F
+1846832,dLocal Ltd,DLO,Nasdaq,Uruguay,Uruguay,7389,"Services-Business Services, NEC",20-F,5,2022-05-02,2026-03-18,address:20-F;curation:DLOCAL

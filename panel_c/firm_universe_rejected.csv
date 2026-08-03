@@ -1,0 +1,30 @@
+cik,name,ticker,exchange,addr_country,country_hq_guess,sic,sic_desc,form_type,n_annual_2018plus,first_annual,last_annual,via,country_operating,status,drop_reason
+787253,NATURAL ALTERNATIVES INTERNATIONAL INC,NAII,Nasdaq,CA,,2833,Medicinal Chemicals & Botanical Products,10-K,8,2018-09-19,2025-09-23,curation:NATURA,,,US domestic (name collision)
+912061,NATURAL HEALTH TRENDS CORP,NHTC,Nasdaq,CA,,5190,Wholesale-Miscellaneous Nondurable Goods,10-K,11,2018-03-27,2026-02-20,curation:NATURA,,,US domestic (name collision)
+1405513,"United States 12 Month Natural Gas Fund, LP",UNL,NYSE,CA,,6221,Commodity Contracts Brokers & Dealers,10-K,9,2018-03-21,2026-03-04,curation:NATURA,,,US commodity fund (name collision)
+1376227,"United States Natural Gas Fund, LP",UNG,NYSE,CA,,6221,Commodity Contracts Brokers & Dealers,10-K,9,2018-02-28,2026-02-27,curation:NATURA,,,US commodity fund (name collision)
+1547459,"Natural Grocers by Vitamin Cottage, Inc.",NGVC,NYSE,CO,,5411,Retail-Grocery Stores,10-K,8,2018-12-06,2025-12-11,curation:NATURA,,,US domestic (name collision)
+1691906,"ANTILIA GROUP, CORP.",,,Dominican Republic,Dominican Republic,5500,Retail-Auto Dealers & Gasoline Stations,10-K,2,2018-04-16,2019-05-24,address:20-F,,,micro shell
+1918884,Metaterra Corp.,,,Dominican Republic,Dominican Republic,5531,Retail-Auto & Home Supply Stores,10-K,1,2023-03-31,2023-03-31,address:20-F,,,micro shell
+1994582,Oyocar Group Inc.,OYCG,OTC,Dominican Republic,Dominican Republic,5500,Retail-Auto Dealers & Gasoline Stations,10-K,2,2024-11-13,2025-11-24,address:20-F,,,micro shell
+1787123,QLY Biotech Group Corp.,,,Dominican Republic,Dominican Republic,4700,Transportation Services,10-K,3,2020-10-06,2022-12-14,address:20-F,,,micro shell
+1609880,ALPHACOM HOLDINGS INC,,,Mexico,Mexico,1040,Gold and Silver Ores,10-K,1,2018-07-16,2018-07-16,address:20-F,,,micro shell
+1973047,MARKY CORP.,,,Mexico,Mexico,7370,"Services-Computer Programming, Data Processing, Etc.",10-K,3,2024-05-06,2025-04-30,address:20-F,,,micro shell
+1612188,TEO FOODS INC,,,Mexico,Mexico,2090,Miscellaneous Food Preparations & Kindred Products,10-K,6,2019-04-16,2023-04-17,address:20-F,,,micro shell
+1980088,MACH NATURAL RESOURCES LP,MNR,NYSE,OK,,1311,Crude Petroleum & Natural Gas,10-K,3,2024-04-01,2026-03-12,curation:NATURA,,,US domestic (name collision)
+1733998,Northwest Natural Holding Co,NWN,NYSE,OR,,4924,Natural Gas Distribution,10-K,8,2019-03-01,2026-02-27,curation:NATURA,,,US domestic (name collision)
+1710366,"Core Natural Resources, Inc.",CNR,NYSE,PA,,1220,Silver Ores,10-K,10,2018-02-16,2026-02-27,curation:NATURA,,,US domestic (name collision)
+1699126,Ciclet Holdings Inc.,,,Philippines,Peru,7372,Services-Prepackaged Software,10-K,5,2020-12-02,2022-05-02,address:20-F,,,Philippines (legacy code R1 collision)
+1612851,"Palayan Resources, Inc.",,,Philippines,Peru,1040,Gold and Silver Ores,10-K,5,2018-07-02,2022-06-28,address:20-F,,,Philippines (legacy code R1 collision)
+1673431,"South East Asia Development, Corp.",,,Philippines,Peru,2800,Chemicals & Allied Products,10-K,6,2019-04-15,2024-06-03,address:20-F,,,Philippines (legacy code R1 collision)
+1020859,UNITED NATURAL FOODS INC,UNFI,NYSE,RI,,5141,"Wholesale-Groceries, General Line",10-K,8,2018-09-24,2025-10-01,curation:NATURA,,,US domestic (name collision)
+1084991,NATURAL GAS SERVICES GROUP INC,NGS,NYSE,TX,,1389,"Oil & Gas Field Services, NEC",10-K,11,2018-03-09,2026-03-16,curation:NATURA,,,US domestic (name collision)
+1171486,NATURAL RESOURCE PARTNERS LP,NRP,NYSE,TX,,1221,Bituminous Coal & Lignite Surface Mining,10-K,10,2018-03-01,2026-02-27,curation:NATURA,,,US domestic (name collision)
+1680689,"Natural Resource Holdings, Inc.",NRHI,OTC,TX,,5960,Retail-Nonstore Retailers,10-K,9,2018-08-13,2025-07-11,curation:NATURA,,,US micro shell (name collision)
+2029118,"INFINITY NATURAL RESOURCES, INC.",INR,NYSE,WV,,1311,Crude Petroleum & Natural Gas,10-K,2,2025-03-28,2026-03-10,curation:NATURA,,,US domestic (name collision)
+793628,CHINA NATURAL RESOURCES INC,CHNR,Nasdaq,,,1040,Gold and Silver Ores,20-F,14,2018-04-30,2026-05-15,curation:NATURA,,,China (name collision)
+1551206,Patagonia Gold Corp.,,,Argentina,Argentina,1040,Gold and Silver Ores,20-F,10,2018-04-17,2022-07-22,address:20-F,,,"deregistered micro-cap, thin data"
+1684688,ATLAS CRITICAL MINERALS Corp,ATCX,Nasdaq,Brazil,Brazil,1040,Gold and Silver Ores,20-F,11,2018-01-04,2026-02-20,address:20-F,,,pre-revenue micro-cap
+1956746,Equifax do Brasil S.A.,,,Brazil,Brazil,7320,"Services-Consumer Credit Reporting, Collection Agencies",20-F,1,2024-05-10,2024-05-10,address:20-F,,,"subsidiary registrant, 1 filing"
+1816815,Bon Natural Life Ltd,BON,Nasdaq,China,,2833,Medicinal Chemicals & Botanical Products,20-F,9,2022-01-31,2026-01-23,curation:NATURA,,,China (name collision)
+1506042,Navios South American Logistics Inc.,,,Uruguay,Uruguay,4731,Arrangement of  Transportation of  Freight & Cargo,20-F,7,2018-03-28,2024-04-29,address:20-F,,,"debt-only registrant, no listed equity"
