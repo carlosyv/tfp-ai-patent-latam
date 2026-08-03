@@ -62,6 +62,26 @@ data/EMP_TEMP_SEX_AGE_NB_A-20260325T1614.csv
 # ------------------------------------------------------------------------------
 output/h3_institutional_comparison/
 
+# ------------------------------------------------------------------------------
+# Panel C — raw EDGAR corpus and API cache (NOT committed)
+#
+# filings_txt/ holds 847 raw 20-F/10-K text files (~942 MB) downloaded from SEC
+# EDGAR; cache/ holds intermediate API pulls (~16 MB). Both are re-derivable
+# source material, not analysis output, and committing them would grow a ~9 MB
+# repository by two orders of magnitude.
+#
+# Regeneration: panel_c/build_universe.py (firm universe) then
+# panel_c/fetch_filings.py (downloads filings_txt/ and populates cache/).
+# panel_c/filings_manifest.csv is committed and records the exact accession
+# numbers, so the corpus is reproducible file-for-file.
+#
+# The derived CSVs the analysis actually consumes (firm_universe.csv,
+# firm_ai_exposure.csv, firm_financials.csv, firm_employees.csv,
+# firm_panel.csv, firm_panel_clean.csv) ARE committed.
+# ------------------------------------------------------------------------------
+panel_c/filings_txt/
+panel_c/cache/
+
 # Jupyter notebooks (if any)
 *.ipynb_checkpoints/
 .ipynb_checkpoints/
