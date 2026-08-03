@@ -1,0 +1,44 @@
+
+──────────────────────────────────────────────────────────────────────
+  DV = Solow (ln_TFP)
+──────────────────────────────────────────────────────────────────────
+
+  ── H3: Rule of Law ──
+    Interaction:  β(AI)=-0.0068, β(MOD)=0.0209, β(AI×MOD)=-0.0473 (SE=0.0159)*** N=225
+    Low INST_rule_of_law:  β(AI)=0.0278 (SE=0.0243) N=113
+    High INST_rule_of_law: β(AI)=-0.0579 (SE=0.0107)*** N=112
+    Diff test:    Δβ=-0.0856, z=-3.224, p=0.0013***
+
+  ── H4: Mobile penetration ──
+    Interaction:  β(AI)=0.0016, β(MOD)=0.0007, β(AI×MOD)=-0.0002 (SE=0.0003) N=225
+    Low INF_mobile:  β(AI)=0.0261 (SE=0.0362) N=113
+    High INF_mobile: β(AI)=0.0298 (SE=0.0148)** N=112
+    Diff test:    Δβ=0.0037, z=0.095, p=0.9243
+
+  ── H4r: Fixed broadband ──
+    Interaction:  β(AI)=0.0155, β(MOD)=0.0005, β(AI×MOD)=-0.0028 (SE=0.0014)** N=215
+    Low INF_broadband:  β(AI)=0.0013 (SE=0.0362) N=108
+    High INF_broadband: β(AI)=0.0343 (SE=0.0180)* N=107
+    Diff test:    Δβ=0.0330, z=0.816, p=0.4146
+
+──────────────────────────────────────────────────────────────────────
+  DV = Malmquist-CRS (TFP_Change_CRS)
+──────────────────────────────────────────────────────────────────────
+
+  ── H3: Rule of Law ──
+    Interaction:  β(AI)=-0.0123, β(MOD)=-0.0207, β(AI×MOD)=0.0014 (SE=0.0102) N=225
+    Low INST_rule_of_law:  β(AI)=-0.0232 (SE=0.0153) N=113
+    High INST_rule_of_law: β(AI)=0.0116 (SE=0.0081) N=112
+    Diff test:    Δβ=0.0348, z=2.010, p=0.0444**
+
+  ── H4: Mobile penetration ──
+    Interaction:  β(AI)=-0.0329, β(MOD)=-0.0004, β(AI×MOD)=0.0002 (SE=0.0001)** N=225
+    Low INF_mobile:  β(AI)=-0.0452 (SE=0.0186)** N=113
+    High INF_mobile: β(AI)=0.0033 (SE=0.0074) N=112
+    Diff test:    Δβ=0.0485, z=2.422, p=0.0154**
+
+  ── H4r: Fixed broadband ──
+    Interaction:  β(AI)=-0.0232, β(MOD)=-0.0029, β(AI×MOD)=0.0017 (SE=0.0007)** N=215
+    Low INF_broadband:  β(AI)=-0.0185 (SE=0.0133) N=108
+    High INF_broadband: β(AI)=0.0134 (SE=0.0074)* N=107
+    Diff test:    Δβ=0.0318, z=2.091, p=0.0365**
