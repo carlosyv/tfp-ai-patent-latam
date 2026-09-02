@@ -47,6 +47,22 @@ tfp-ai-patent-latam/
 │   ├── run_pipeline_v5.py                         ← MAIN PIPELINE (Panel A)
 │   └── run_pipeline_v5_panelB.py                  ← Panel B robustness (OECD.AI publications)
 │
+├── analysis/                                      ← Standalone supplementary analyses
+│   ├── bartik_iv.py                               ← Shift-share IV, OECD.AI fields (§4.7)
+│   ├── bartik_iv_v2.py                            ← Shift-share IV, WIPO 35 tech fields (2000–2022)
+│   ├── composite_index.py                         ← AI-capability composite index (§5.6)
+│   ├── period_robustness.py                       ← Period-heterogeneity table (§5.8)
+│   ├── ilo_labor_channel.py                       ← ILOSTAT occupational-displacement channel
+│   └── moderation_eps.py                          ← H4 environmental-policy-stringency moderation
+│
+├── data_prep/
+│   └── build_gairi_panel.py                       ← Merge GAIRI editions 2019–2025 into one panel
+│
+├── notes/                                         ← Method/results notes for the analyses above
+│   ├── BARTIK_NOTES.md
+│   ├── COMPOSITE_NOTES.md
+│   └── PERIOD_HETEROGENEITY_NOTES.md
+│
 ├── data/                                          ← All input data sources
 │   ├── wb_data_export.csv                         ← World Development Indicators (WDI)
 │   ├── pwt-data-human-capital-026-03-22T15-56_export.csv  ← Penn World Table 10.01
@@ -189,6 +205,33 @@ python pipeline_v5/run_pipeline_v5_panelB.py
 ```
 
 Panel B reuses the shared estimators from Panel A and uses OECD.AI publication counts as the AI measure across 17 countries (2016–2024). It reads `output/results/merged_dissertation_v5.csv`, so run Panel A first.
+
+### 5. Supplementary Analyses (optional)
+
+Each script in `analysis/` is standalone and resolves `data/` and `output/results/`
+relative to the repository root, so it can be run from any working directory:
+
+```bash
+python analysis/bartik_iv.py           # shift-share IV, OECD.AI publication fields
+python analysis/bartik_iv_v2.py        # shift-share IV, WIPO 35 technology fields
+python analysis/composite_index.py     # writes output/results/composite_index.csv
+python analysis/period_robustness.py   # requires composite_index.py to have run first
+python analysis/ilo_labor_channel.py   # ILOSTAT occupational shares vs lagged AI stock
+```
+
+All of these read `output/results/merged_dissertation_v5.csv` (and, for `bartik_iv.py`,
+`merged_panelB_v5.csv`), so run Panel A — and Panel B for `bartik_iv.py` — first.
+
+`analysis/moderation_eps.py` is not runnable from this repository as shipped: it requires
+`linearmodels` (see `requirements.txt`) and an input panel at `data/panel_v5.parquet`
+that is not included.
+
+To rebuild the Government AI Readiness Index panel from the raw Oxford Insights
+workbooks in `data/gov-ai-readiness/raw/`:
+
+```bash
+python data_prep/build_gairi_panel.py
+```
 
 ---
 

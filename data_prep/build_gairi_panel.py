@@ -63,7 +63,7 @@ import pandas as pd
 # Paths
 # --------------------------------------------------------------------------- #
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parents[1]  # repo root (this script lives in data_prep/)
 RAW_DIR = REPO_ROOT / "data" / "gov-ai-readiness" / "raw"
 OUT_DIR = REPO_ROOT / "data" / "gov-ai-readiness" / "merged"
 

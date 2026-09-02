@@ -15,9 +15,13 @@ Requires: pandas, numpy, linearmodels, statsmodels
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from linearmodels.panel import PanelOLS
+
+REPO_ROOT = Path(__file__).resolve().parents[1]  # repo root (this script lives in analysis/)
 
 # --------------------------------------------------------------------------
 # Configuration
@@ -185,10 +189,10 @@ def preflight(df: pd.DataFrame) -> None:
 
 if __name__ == "__main__":
     # panel indexed (country, year)
-    df = pd.read_parquet("data/panel_v5.parquet").set_index(["country", "year"])
+    df = pd.read_parquet(REPO_ROOT / "data" / "panel_v5.parquet").set_index(["country", "year"])
     preflight(df)
     results = run_all(df)
-    results.to_csv("output/moderation_eps.csv", index=False)
+    results.to_csv(REPO_ROOT / "output" / "moderation_eps.csv", index=False)
     print("\n", results[[
         "dv", "moderator", "n", "beta_inter", "se_inter", "p_inter",
         "ci_inter_lo", "ci_inter_hi",

@@ -1,6 +1,6 @@
 # Government AI Readiness Index (GAIRI) — merged global rankings, 2019–2025
 
-Produced by `build_gairi_panel.py` (repository root). Re-run that script to
+Produced by `data_prep/build_gairi_panel.py`. Re-run that script to
 regenerate everything in this folder; do not edit the CSVs by hand.
 
 ## Files
@@ -65,7 +65,7 @@ sub-panel is fully balanced (119 observations).
 Country nomenclature also drifts across editions (`Turkey` → `Türkiye`,
 `Czech Republic` → `Czechia`, `Bolivia` → `Bolivia (Plurinational State of)`,
 `United Kingdom` → `United Kingdom of Great Britain and Northern Ireland`, and
-so on). The crosswalk in `build_gairi_panel.py` is an **explicit** dictionary
+so on). The crosswalk in `data_prep/build_gairi_panel.py` is an **explicit** dictionary
 covering all 215 observed labels; fuzzy matching is deliberately not used, and
 the script raises rather than silently dropping an unrecognised label.
 

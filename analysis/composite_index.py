@@ -17,8 +17,8 @@ Outputs: output/results/composite_index.csv, composite_robustness_results.csv
 import os
 import numpy as np, pandas as pd
 
-HERE=os.path.dirname(os.path.abspath(__file__))
-OUT=os.path.join(HERE,"output","results")
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (this script lives in analysis/)
+OUT=os.path.join(ROOT,"output","results")
 
 STRATEGY={"Argentina":2019,"Brazil":2021,"Chile":2021,"Colombia":2019,"Costa Rica":2024,
           "Dominican Republic":2024,"Mexico":9999,"Peru":2021,"Uruguay":2020}
@@ -28,7 +28,7 @@ def z(s): return (s-s.mean())/s.std()
 def build():
     A=pd.read_csv(os.path.join(OUT,"merged_dissertation_v5.csv"))
     A=A[(A.Year>=2017)&(A.Year<=2024)].copy()
-    pub=pd.read_csv(os.path.join(HERE,"data/cat-ai-patents-country-data/publications_yearly_articles.csv"))
+    pub=pd.read_csv(os.path.join(ROOT,"data/cat-ai-patents-country-data/publications_yearly_articles.csv"))
     pub=pub[(pub.field=="All")].groupby(["country","year"]).num_articles.sum().reset_index()
     pub.columns=["CountryName","Year","pubs"]
     A=A.merge(pub,on=["CountryName","Year"],how="left")
@@ -37,7 +37,7 @@ def build():
     comp={"c_pat":z(A["LN_AI"]),"c_pub":z(A["ln_pubs"]),
           "c_str":z(A["strategy"]),
           "c_inf":(z(A["INF_broadband"])+z(A["INF_internet"]))/2}
-    ox=os.path.join(HERE,"data","oxford_ai_readiness.csv")
+    ox=os.path.join(ROOT,"data","oxford_ai_readiness.csv")
     n_comp=4
     if os.path.exists(ox):
         o=pd.read_csv(ox); A=A.merge(o,on=["CountryName","Year"],how="left")

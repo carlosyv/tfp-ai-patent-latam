@@ -19,14 +19,14 @@ numpy-only estimators (verify with linearmodels on full install).
 import os
 import numpy as np, pandas as pd
 
-HERE=os.path.dirname(os.path.abspath(__file__))
-OUT=os.path.join(HERE,"output","results")
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (this script lives in analysis/)
+OUT=os.path.join(ROOT,"output","results")
 LATAM=["Argentina","Brazil","Chile","Colombia","Costa Rica","Dominican Republic","Mexico","Peru",
  "Uruguay","Bolivia","Ecuador","El Salvador","Guatemala","Honduras","Nicaragua","Panama","Paraguay"]
 FIELDS=["AI Safety","Computer Vision","Large language models","Natural Language Processing","Robotics"]
 
 def build_z():
-    d=pd.read_csv(os.path.join(HERE,"data/cat-ai-patents-country-data/publications_yearly_articles.csv"))
+    d=pd.read_csv(os.path.join(ROOT,"data/cat-ai-patents-country-data/publications_yearly_articles.csv"))
     d=d[(d.field.isin(FIELDS))&(d.year.between(2016,2024))]
     base=d[(d.year.between(2016,2017))&(d.country.isin(LATAM))]
     s=base.groupby(["country","field"]).num_articles.sum().unstack(fill_value=0)

@@ -1,6 +1,6 @@
 # AI-capability composite index (§5.6) — build + robustness notes (2026-07-14)
 
-`composite_index.py`. Components (z-scores, equal weights, 2017–24 sample): ln AI patent
+`analysis/composite_index.py`. Components (z-scores, equal weights, 2017–24 sample): ln AI patent
 stock pc (LN_AI) + ln OECD.AI publications + AI-strategy adoption indicator (dates per
 opening report §1.1.2; Mexico=0 through 2024, strategy remained draft) + digital
 infrastructure (mean z of WDI broadband+internet — documented substitute for ITU IDI,

@@ -8,13 +8,15 @@ runs through computer/digital-field specialization capturing AI-relevant global 
 """
 import os
 import numpy as np, pandas as pd
-HERE=os.path.dirname(os.path.abspath(__file__)); OUT=os.path.join(HERE,"output","results")
+# repo root (this script lives in analysis/)
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT=os.path.join(ROOT,"output","results")
 LAT2=["AR","BR","CL","CO","CR","DO","MX","PE","UY","BO","EC","SV","GT","HN","NI","PA","PY"]
 NAME={"AR":"Argentina","BR":"Brazil","CL":"Chile","CO":"Colombia","CR":"Costa Rica",
       "DO":"Dominican Republic","MX":"Mexico","PE":"Peru","UY":"Uruguay"}
 
 def build():
-    d=pd.read_csv(os.path.join(HERE,"data/wipo_field/dc_indicator_patent_4_publication_by_technology.csv"))
+    d=pd.read_csv(os.path.join(ROOT,"data/wipo_field/dc_indicator_patent_4_publication_by_technology.csv"))
     d=d[(d.office=="**")&(d.tec_id.between(1,35))]
     base=d[(d.origin.isin(NAME))&(d.year.between(2000,2004))]
     s=base.groupby(["origin","tec_id"])["count"].sum().unstack(fill_value=0)
@@ -76,7 +78,7 @@ if __name__=="__main__":
         V=meat*len(np.unique(cl2))/(len(np.unique(cl2))-1); ss=np.sqrt(np.diag(V))
         print(f"IV x {nm:10s}  AI b={bb[0]: .4f} (t={bb[0]/ss[0]: .2f})  AIx{nm} b={bb[1]: .4f} (t={bb[1]/ss[1]: .2f})")
     print("\nTop-8 Rotemberg-approx field weights:")
-    fn=pd.read_excel(os.path.join(HERE,"data/wipo_field/patent_technology_field_names.xlsx"))[["class_id","field_en"]] if os.path.exists(os.path.join(HERE,"data/wipo_field/patent_technology_field_names.xlsx")) else None
+    fn=pd.read_excel(os.path.join(ROOT,"data/wipo_field/patent_technology_field_names.xlsx"))[["class_id","field_en"]] if os.path.exists(os.path.join(ROOT,"data/wipo_field/patent_technology_field_names.xlsx")) else None
     top=w.sort_values(ascending=False).head(8)
     for fid,val in top.items():
         lbl=fn[fn.class_id==fid].field_en.iloc[0] if fn is not None and (fn.class_id==fid).any() else fid

@@ -13,7 +13,9 @@ Framing: suggestive channel evidence, small N; NOT causal.
 """
 import os
 import numpy as np, pandas as pd
-HERE=os.path.dirname(os.path.abspath(__file__)); OUT=os.path.join(HERE,"output","results")
+# repo root (this script lives in analysis/)
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT=os.path.join(ROOT,"output","results")
 ISO3={"ARG":"Argentina","BRA":"Brazil","CHL":"Chile","COL":"Colombia","CRI":"Costa Rica",
       "DOM":"Dominican Republic","MEX":"Mexico","PER":"Peru","URY":"Uruguay"}
 
@@ -30,7 +32,7 @@ def ols_cl(y,X,cl):
 
 CTRL=["LNPGDP_constant2015","OPEN_trade","LN_HC_index","GOV_consumption","URB_urban_pop"]
 if __name__=="__main__":
-    d=pd.read_csv(os.path.join(HERE,"data/ilostat/EMP_TEMP_SEX_OCU_NB_A_latam.csv"))
+    d=pd.read_csv(os.path.join(ROOT,"data/ilostat/EMP_TEMP_SEX_OCU_NB_A_latam.csv"))
     d=d[d.sex=="SEX_T"].copy(); d["CountryName"]=d.ref_area.map(ISO3); d["Year"]=d.time
     A=pd.read_csv(os.path.join(OUT,"merged_dissertation_v5.csv"))
     A=A.sort_values(["Country","Year"])

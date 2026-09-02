@@ -1,6 +1,6 @@
 # Macro Bartik IV — implementation notes (2026-07-14)
 
-`bartik_iv.py` implements §4.7 with the in-repo OECD.AI field-level publications
+`analysis/bartik_iv.py` implements §4.7 with the in-repo OECD.AI field-level publications
 (5 fields, 2016–2024): shares = 2016–17 country field composition; shifts = ln global
 ex-LatAm field publications; Z = share-weighted shifts.
 
@@ -31,7 +31,7 @@ Outputs: output/results/bartik_iv_results.csv, rotemberg_weights.csv.
 
 # Bartik v2 — WIPO 35-field version (2026-07-19): IDENTIFICATION ACHIEVED
 
-`bartik_iv_v2.py` + `data/wipo_field/` (WIPO bulk "patent indicators" file:
+`analysis/bartik_iv_v2.py` + `data/wipo_field/` (WIPO bulk "patent indicators" file:
 publications by technology field x origin x year, 2000-2022, free download).
 shares = country field composition 2000-2004 (genuinely predetermined);
 shifts = ln global ex-LatAm publications by field-year; Panel A 2000-2022.

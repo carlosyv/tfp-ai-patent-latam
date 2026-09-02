@@ -10,7 +10,9 @@ with FE-DK in pipeline_v5 on full install).
 """
 import os
 import numpy as np, pandas as pd
-HERE=os.path.dirname(os.path.abspath(__file__)); OUT=os.path.join(HERE,"output","results")
+# repo root (this script lives in analysis/)
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT=os.path.join(ROOT,"output","results")
 
 def demean2(df,cols,i="Country",t="Year",iters=100):
     X=df[cols].astype(float).copy()

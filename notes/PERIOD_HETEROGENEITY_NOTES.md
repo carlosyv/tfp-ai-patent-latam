@@ -1,6 +1,6 @@
 # Period robustness + official v5 heterogeneity — verification notes (2026-07-19)
 
-## Period-robustness table (§5.8) — `period_robustness.py` → output/results/period_robustness_table.csv
+## Period-robustness table (§5.8) — `analysis/period_robustness.py` → output/results/period_robustness_table.csv
 Windows: 2000–24 (patents), 2016–24 (patents), 2017–24 (patents AND composite).
 H1 null in every window and under both treatments. One table, windows as blocks — not cluttered.
 
@@ -34,7 +34,7 @@ Solow (ln TFP level): MIXED-TO-OPPOSITE for institutions —
   interaction signs; not an error, a measure choice. Composite robustness conclusions
   (H1 null robust) unaffected.
 
-# ILO labor-channel exercise (2026-07-20) — `ilo_labor_channel.py`
+# ILO labor-channel exercise (2026-07-20) — `analysis/ilo_labor_channel.py`
 Data: ILOSTAT EMP_TEMP_SEX_OCU via rplumber API (saved data/ilostat/EMP_TEMP_SEX_OCU_NB_A_latam.csv;
 old bulk endpoint is dead). Occupational shares (ISCO-08 majors; SKILL buckets) on lagged
 LN_AI, two-way FE, country-clustered.
